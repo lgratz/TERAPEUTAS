@@ -1,10 +1,17 @@
 #map {
-  width: 480px;
+  position: sticky !important;
   height: 100vh;
-  position: sticky !important; /* !important to override Gmaps inline CSS */
-  top: 0 !important;
+  padding: 0px;
+  border-width: 0px;
+  margin: 0px;
+  left: 0px;
+  top: 0px;
+  flex: 0 0 60%;
 }
 
-.card-map {
-  flex: 1 1 auto;
+.search-header {
+  background-color: #eae8e0;
+  min-width: 1016px;
+  height: 60px;
+  justify-content: center;
 }

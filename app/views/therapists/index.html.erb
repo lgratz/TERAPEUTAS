@@ -1,48 +1,31 @@
-<div class="container">
-  <br>
-  <p><strong>Refinar busca:</strong></p>
-
-
+<div class="search-header">
   <div class="form-container">
       <%= form_tag therapists_path, method: :get, class: "form-inline" do %>
-         <p>Endereço: <%= text_field_tag :query,
+         <p><%= text_field_tag :query,
           params[:query],
           class: "form-control",
           placeholder: "digite aqui o seu endereço..."
         %>
-      <%= submit_tag 'Buscar', class: "btn btn-default"%></p>
+      <%= submit_tag 'Buscar no mapa', class: "btn btn-info"%></p>
       <% end %>
   </div>
+</div>
 
-  <h3 class="text-center">Terapeutas próximos a você:</h3>
 
-  <div class="main-container">
-    <div class="row">
-
-      <div class="col-xs-12">
-
-      <div id="card-map">
-        <% @therapists.each do |therapist| %>
-          <div class="therapist-card-list">
-            <div class="therapist-img">
-              <%= render partial: 'shared/cardslist', locals: { therapist: therapist } %>
-            </div>
-            <div class="card-list">
-              <h4> <strong> <%= therapist.name %> </strong> </h4>
-              <h5>Preço da sessão: R$<%= therapist.session_price %>,00</h5>
-              <p class="therapist-rating">Nota dos clientes: <%= therapist.rating %></p>
-              <%= link_to "Ver detalhes", therapist_path(therapist), class: "btn btn-md btn-default" %>
-            </div>
-          </div>
-        <% end %>
-      </div>
-
+<div class="main-container">
+  <div>
+  <% @therapists.each do |therapist| %>
+    <div class="therapist-list">
+      <h4> <strong> <%= current_user.first %> </strong> </h4>
+      <h5>Preço da sessão: R$<%= therapist.session_price %>,00</h5>
+      <%= link_to "Agendar", therapist_path(therapist), class: "btn btn-md btn-success" %>
     </div>
-
-    </div>
-        <div
-          id="map" data-markers="<%= @markers.to_json %>">
-        </div>
+  <% end %>
   </div>
 
+  <div id="map" data-markers="<%= @markers.to_json %>"></div>
+
 </div>
+
+
+
