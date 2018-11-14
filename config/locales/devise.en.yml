@@ -9,7 +9,7 @@ en:
     failure:
       already_authenticated: "Você já está logado na Weal."
       inactive: "Your account is not activated yet."
-      invalid: "%{authentication_keys.capitalize} ou senha inválidos."
+      invalid: "Email ou senha inválidos."
       locked: "Your account is locked."
       last_attempt: "You have one more attempt before your account is locked."
       not_found_in_database: "Esse email não está cadastrado na Weal."

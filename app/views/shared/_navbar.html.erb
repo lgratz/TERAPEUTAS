@@ -23,14 +23,18 @@
                 <i class="fas fa-user"></i> <%= "Meu usuário" %>
               <% end %>
             </li>
-            <li>
-              <%= link_to "#" do %>
-                <i class="fa fa-cog"></i>  <%= t(".settings", default: "Settings") %>
-              <% end %>
-            </li>
+
+            <% unless current_user.therapist.nil? %>
+              <li>
+                <%= link_to edit_therapist_path do %>
+                  <i class="fa fa-hand-paper"></i>  <%= t(".settings", default: "Dados Cadastrais") %>
+                <% end %>
+              </li>
+            <% end %>
+
             <li>
               <%= link_to destroy_user_session_path, method: :delete do %>
-                <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
+                <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Sair") %>
               <% end %>
             </li>
           </ul>
