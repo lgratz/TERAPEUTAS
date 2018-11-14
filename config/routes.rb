@@ -1,15 +1,19 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
+  resources :pages, only: [:index]
 
   resources :therapists do
-     resources :appointments
+     resources :appointments, only: [:new, :create]
   end
+
+  resources :appointments, except: [:new, :create]
 
   resources :categories, only: [:index, :show, :update, :create, :destroy]
 
   namespace :therapist do
-    resources :appointments, except: [:new, :create, :show]
+    resources :appointments, only: [:index], as: :my_appointments
+    resources :appointments, only: [:edit, :update, :destroy]
   end
 end
 
