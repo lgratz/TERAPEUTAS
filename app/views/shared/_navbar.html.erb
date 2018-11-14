@@ -1,7 +1,7 @@
 <div class="navbar-wagon">
   <!-- Logo -->
   <%= link_to root_path, class: "navbar-wagon-brand" do %>
-    <%= image_tag "weal_logo.png" %>
+    <%= image_tag "logo.png" %>
   <% end %>
 
   <!-- Right Navigation -->
@@ -10,7 +10,16 @@
     <% if user_signed_in? %>
 
       <!-- Links when logged in -->
-      <%= link_to raw("<i class='far fa-calendar-alt'></i><br> Agendamentos"), current_user.therapist.nil? ? appointments_path : therapist/appointments_path, class: "navbar-wagon-item navbar-wagon-link text-center" %>
+      <% if current_user.therapist.nil? %>
+
+        <%= link_to raw("<i class='far fa-calendar-alt'></i><br> Agendamentos"), appointments_path, class: "navbar-wagon-item navbar-wagon-link text-center" %>
+
+      <% else %>
+
+        <%= link_to raw("<i class='far fa-calendar-alt'></i><br> Agendamentos"),therapist_my_appointments_path, class: "navbar-wagon-item navbar-wagon-link text-center" %>
+
+      <% end %>
+
       <%= link_to raw("<i class='fas fa-book'></i><br> Conheça Mais"), categories_path, class: "navbar-wagon-item navbar-wagon-link text-center" %>
 
       <!-- Avatar with dropdown menu -->
@@ -26,23 +35,24 @@
 
             <% unless current_user.therapist.nil? %>
               <li>
-                <%= link_to edit_therapist_path do %>
+                <%= link_to edit_therapist_path(current_user.therapist) do %>
                   <i class="fa fa-hand-paper"></i>  <%= t(".settings", default: "Dados Cadastrais") %>
                 <% end %>
+              </li>
+              <li>
+                <%= link_to raw("<i class='far fa-calendar-alt'></i> Agendei para mim"), appointments_path, class: "navbar-wagon-item navbar-wagon-link text-center" %>
               </li>
             <% end %>
 
             <li>
               <%= link_to destroy_user_session_path, method: :delete do %>
-                <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Sair") %>
+                <i class="fas fa-sign-out-alt"></i>  <%= t(".sign_out", default: "Sair") %>
               <% end %>
             </li>
           </ul>
         </div>
       </div>
     <% else %>
-      <%= link_to raw("<i class='fas fa-user'></i><br> Sou Eu"), root_path, class: "navbar-wagon-item navbar-wagon-link text-center" %>
-
       <%= link_to raw("<i class='fa fa-hand-paper'></i><br> Sou Terapeuta"), pages_path, class: "navbar-wagon-item navbar-wagon-link text-center" %>
 
       <%= link_to raw("<i class='fas fa-book'></i><br> Conheça Mais"), categories_path, class: "navbar-wagon-item navbar-wagon-link text-center" %>

@@ -12,7 +12,8 @@ Rails.application.routes.draw do
   resources :categories, only: [:index, :show, :update, :create, :destroy]
 
   namespace :therapist do
-    resources :appointments, except: [:new, :create, :show]
+    resources :appointments, only: [:index], as: :my_appointments
+    resources :appointments, only: [:edit, :update, :destroy]
   end
 end
 
