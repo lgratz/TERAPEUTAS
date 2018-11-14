@@ -38,8 +38,17 @@
         </div>
       </div>
     <% else %>
+      <%= link_to raw("<i class='fas fa-user'></i><br> Sou Eu"), root_path, class: "navbar-wagon-item navbar-wagon-link text-center" %>
+
+      <%= link_to raw("<i class='fa fa-hand-paper'></i><br> Sou Terapeuta"), pages_path, class: "navbar-wagon-item navbar-wagon-link text-center" %>
+
+      <%= link_to raw("<i class='fas fa-book'></i><br> Conheça Mais"), categories_path, class: "navbar-wagon-item navbar-wagon-link text-center" %>
+
       <!-- Login link (when logged out) -->
-      <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to raw("<i class='fas fa-sign-in-alt'></i><br> Entrar"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link text-center" %>
+
+
+
     <% end %>
   </div>
 
