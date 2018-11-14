@@ -4,8 +4,10 @@ Rails.application.routes.draw do
   resources :pages, only: [:index]
 
   resources :therapists do
-     resources :appointments
+     resources :appointments, only: [:new, :create]
   end
+
+  resources :appointments, except: [:new, :create]
 
   resources :categories, only: [:index, :show, :update, :create, :destroy]
 

@@ -1,18 +1,17 @@
 <div class="navbar-wagon">
   <!-- Logo -->
   <%= link_to root_path, class: "navbar-wagon-brand" do %>
-    <%= image_tag "logo.png", height: 50 %>
+    <%= image_tag "weal_logo.png" %>
   <% end %>
 
   <!-- Right Navigation -->
-  <div class="navbar-wagon-right hidden-xs hidden-sm">
+  <div class="navbar-wagon-right">
 
     <% if user_signed_in? %>
 
       <!-- Links when logged in -->
-      <%= link_to "Host", "#", class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "Trips", "#", class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "Messages", "#", class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to raw("<i class='far fa-calendar-alt'></i><br> Agendamentos"), current_user.therapist.nil? ? appointments_path : therapist/appointments_path, class: "navbar-wagon-item navbar-wagon-link text-center" %>
+      <%= link_to raw("<i class='fas fa-book'></i><br> Conheça Mais"), categories_path, class: "navbar-wagon-item navbar-wagon-link text-center" %>
 
       <!-- Avatar with dropdown menu -->
       <div class="navbar-wagon-item">
@@ -20,8 +19,8 @@
           <%= image_tag "http://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
             <li>
-              <%= link_to "#" do %>
-                <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
+              <%= link_to edit_user_registration_path do %>
+                <i class="fas fa-user"></i> <%= "Meu usuário" %>
               <% end %>
             </li>
             <li>
@@ -47,21 +46,8 @@
       <!-- Login link (when logged out) -->
       <%= link_to raw("<i class='fas fa-sign-in-alt'></i><br> Entrar"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link text-center" %>
 
-
-
     <% end %>
   </div>
 
-  <!-- Dropdown list appearing on mobile only -->
-  <div class="navbar-wagon-item hidden-md hidden-lg">
-    <div class="dropdown">
-      <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
-      <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-        <li><a href="#">Some mobile link</a></li>
-        <li><a href="#">Other one</a></li>
-        <li><a href="#">Other one</a></li>
-      </ul>
-    </div>
-  </div>
 </div>
 
