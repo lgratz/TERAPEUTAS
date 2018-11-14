@@ -1,8 +1,6 @@
 .main-container {
   display: flex;
   justify-content: space-between;
-  flex-direction: row;
-  margin: 20px;
 }
 
 .therapist-card-list {
@@ -15,18 +13,9 @@
   border-top: 1px solid #234e7d;
 }
 
-.card-list {
-  height: 173px;
-  width: 250px;
-  background-size: cover;
-}
-
-.therapist-rating {
-  font-size: 0.7 em;
-}
-
-.therapist-img {
+.therapist-list {
   margin: 12px;
   box-shadow: 6px 6px 8px grey;
   border: 1px solid black;
+  width: 500px;
 }
