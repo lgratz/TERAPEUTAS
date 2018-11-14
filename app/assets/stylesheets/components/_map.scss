@@ -1,0 +1,10 @@
+#map {
+  width: 480px;
+  height: 100vh;
+  position: sticky !important; /* !important to override Gmaps inline CSS */
+  top: 0 !important;
+}
+
+.card-map {
+  flex: 1 1 auto;
+}
