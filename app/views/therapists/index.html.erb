@@ -6,7 +6,7 @@
           class: "form-control",
           placeholder: "digite aqui o seu endereço..."
         %>
-      <%= submit_tag 'Buscar no mapa', class: "btn btn-default"%></p>
+      <%= submit_tag 'Buscar no mapa', class: "btn btn-info"%></p>
       <% end %>
   </div>
 </div>
@@ -18,7 +18,7 @@
     <div class="therapist-list">
       <h4> <strong> <%= current_user.first %> </strong> </h4>
       <h5>Preço da sessão: R$<%= therapist.session_price %>,00</h5>
-      <%= link_to "Agendar", therapist_path(therapist), class: "btn btn-md btn-default" %>
+      <%= link_to "Agendar", therapist_path(therapist), class: "btn btn-md btn-success" %>
     </div>
   <% end %>
   </div>
