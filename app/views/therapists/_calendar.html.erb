@@ -1,0 +1,15 @@
+
+<div class="container calendar">
+  <div class="form-container">
+
+    <%= form_tag therapists_path, method: :get, class: "form-inline" do %>
+       <p><%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+        placeholder: "digite aqui o seu endereço..."
+      %>
+    <%= submit_tag 'Buscar no mapa', class: "btn btn-success"%></p>
+    <% end %>
+
+  </div>
+</div>
