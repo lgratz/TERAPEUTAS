@@ -1,4 +1,6 @@
 class CategoriesController < ApplicationController
+  skip_before_action :authenticate_user!
+
   def index
     @category = Category.all
   end
@@ -14,4 +16,5 @@ class CategoriesController < ApplicationController
 
   def destroy
   end
+
 end
