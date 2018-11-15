@@ -1,4 +1,22 @@
 
+.card_category {
+  width: 100%;
+  height: 360px;
+  margin-top: 24px;
+  margin-bottom: 14px;
+  box-shadow: 1px 1px 2px grey;
+  border-radius: 3px;
+  overflow: hidden;
+  padding-top: 30px;
+  background-color:  rgb(240, 240, 240);
+  // opacity: 0.3
+}
+
+.img-responsive {
+  border-radius: 60px;
+  padding: 40px;
+
+}
 .card {
   height: 175px;
   text-shadow: 0 1px 3px rgba(0,0,0,0.6);

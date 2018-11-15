@@ -1,62 +1,19 @@
+<div style= "background-image: url(assets/background.jpeg);">
 
-<div class="container">
-<div class="row">
-  <div class="col-xs-12 col-sm-4">
-    <div class="card">
-      <div class="card-body">
-        <h2 class="card-title">Massagem Antiestresse</h2>
-        <p class="card-text">Se você é uma pessoa muito estressada no cotidiano e está sempre sob pressão, esse é um dos tipos de massagem que você precisa.
-        Com deslizamento e amassamento, essa massagem estimula a liberação da ocitocina e ainda outros hormônios de antiestresse. É uma massagem mais leve para evitar que você tenha dores em seu corpo."</p>
-        <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+<div class="container" style=>
+      <div class="row">
+  <% @category.each do |category| %>
+    <div class='card_category'>
+        <div class="col-sm-8 ">
+          <h2 class="text-center">  <%= category.name %> </h2>
+          <p class="text-center"> <%= category.description %> </p>
+        </div>
+        <div class="col-sm-4">
+          <%= image_tag category.image, class: "img-responsive" %>
+        </div>
       </div>
-    </div>
-  </div>
-  <div class="col-xs-12 col-sm-4">
-    <div class="card">
-      <div class="card-body">
-        <h2 class="card-title">Shiatsu</h2>
-        <p class="card-text">Um dos tipos de massagens mais conhecidas, disciplina oriental que combina a pressão dos polegares, palmas das mãos e cotovelos em canais que fluem a energia. Certamente, você precisa experimentar."</p>
-        <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
-      </div>
-    </div>
-  </div>
-  <div class="col-xs-12 col-sm-4">
-    <div class="card">
-      <div class="card-body">
-        <h2 class="card-title">Reiki</h2>
-        <p class="card-text">Técnica comprovada para aliviar muitas dores, com imposição de mãos e transmissão de energia em lugares específicos do seu corpo, que melhora os aspectos físicos, emocionais e espirituais. Além disso, ajuda positivamente em qualquer tratamento médico."</p>
-        <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
-      </div>
-    </div>
-  </div>
-  <div class="col-xs-12 col-sm-4">
-    <div class="card">
-      <div class="card-body">
-        <h2 class="card-title">Reflexologia</h2>
-        <p class="card-text">A Reflexologia faz pressões nas mãos ou nos pés e equilibra a energia do seu corpo. Cada ponto do seu pé tem um órgão correspondente"</p>
-        <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
-      </div>
-    </div>
-  </div>
-  <div class="col-xs-12 col-sm-4">
-    <div class="card">
-      <div class="card-body">
-        <h2 class="card-title">Acupuntura</h2>
-        <p class="card-text">A acupuntura é uma terapia milenar originária da China, que consiste na aplicação de agulhas em pontos específicos do corpo para tratar doenças e para promover saúde. Estas agulhas, quando aplicadas sobre algumas regiões específicas são capazes de tratar diversas doenças físicas ou emocionais como sinusite, asma, enxaqueca ou artrite por exemplo, além de melhorar o sistema imunitário."</p>
-        <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
-      </div>
-    </div>
-  </div>
-  <div class="col-xs-12 col-sm-4">
-    <div class="card">
-      <div class="card-body">
-        <h2 class="card-title">Yoga</h2>
-        <p class="card-text">oga é um forma de levar a vida e se pararmos para pensar, temos praticado desde que somos bebês! Por exemplo fazendo o alongamento do gato, para alongar a coluna. Você sempre vê as crianças fazendo algum tipo de yoga durante o dia.
-        O yoga funciona para todos: pessoas que trabalham em um escritório, praticantes de esportes, pessoas procurando perder peso, com uma rotina intensa ou tranquila no dia-a-dia que podem ter mais qualidade de vida com a prática."</p>
-        <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
-      </div>
-    </div>
-  </div>
+  <% end %>
+       </div>
 </div>
 </div>
 
