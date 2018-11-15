@@ -3,3 +3,41 @@
 
 
 <%= render 'therapists/calendar' %>
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+        <h1></h1><br>
+
+        <div class="panel panel-success">
+          <div class="panel-heading">
+            <h4>Meus Pedidos</h4>
+          </div>
+
+          <table class="table" style="width:100%">
+            <tr>
+              <th>Data</th>
+              <th>Usuário</th>
+              <th>Terapeuta</th>
+              <th>Endereço</th>
+              <th>Preço</th>
+            </tr>
+
+            <% @appointments.each do |appointment| %>
+            <tr>
+              <td><%= appointment.session_date %></td>
+              <td><%= appointment.user.first.capitalize %></td>
+              <td><%= appointment.therapist.user.first.capitalize + " " + appointment.therapist.user.first.capitalize%></td>
+              <td><%= appointment.therapist.address %></td>
+              <td>R$ <%= appointment.therapist.session_price %>,00</td>
+
+            </tr>
+            <% end %>
+          </table>
+
+        </div>
+
+    </div>
+  </div>
+</div>

@@ -53,7 +53,6 @@ inputs = {roberto: "R. Fradique Coutinho, 1350" , anderson: "R. Fidalga, 255", t
    b.user_id = User.all[4].id
    b.save
 
-puts "Seeds created yay!"
 
    12.times do
      o = Appointment.new
@@ -118,6 +117,7 @@ puts "Seeds created yay!"
    h.save
 
 
+puts "Seeds created yay!"
   # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 #

@@ -1,15 +1,44 @@
 
 <div class="container calendar">
-  <div class="form-container">
 
-    <%= form_tag therapists_path, method: :get, class: "form-inline" do %>
-       <p><%= text_field_tag :query,
-        params[:query],
-        class: "form-control",
-        placeholder: "digite aqui o seu endereço..."
-      %>
-    <%= submit_tag 'Buscar no mapa', class: "btn btn-success"%></p>
-    <% end %>
+  <div class="panel panel-success">
+
+    <div class="form-container">
+      <%= form_tag therapists_path, method: :get, class: "form-inline" do %>
+         <p><%= text_field_tag :query,
+          params[:query],
+          class: "form-control",
+          placeholder: "digite aqui o seu endereço..."
+        %>
+      <%= submit_tag 'Data desejada', class: "btn btn-success"%></p>
+      <% end %>
+    </div>
+
+      <div class="panel-heading">
+        <table class="table">
+          <tr>
+            <th>12/11</th>
+            <th>12/11</th>
+            <th>12/11</th>
+            <th>12/11</th>
+            <th>12/11</th>
+          </tr>
+        </table>
+
+      </div>
+
+      <div class="panel-body">
+        <table class="table text-centered">
+          <tr>
+            <td>12/11</td>
+            <td>12/11</td>
+            <td>12/11</td>
+            <td>12/11</td>
+            <td>12/11</td>
+          </tr>
+        </table>
+      </div>
 
   </div>
+
 </div>
