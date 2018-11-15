@@ -1,5 +1,21 @@
-<h1>informações detalhadas do terapeuta/agenda</h1>
+<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('assets/banner_terapeutas');">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-md-6 ">
+        <div>
+          <img src='https://kitt.lewagon.com/placeholder/users/arthur-littm' class="avatar-large"/>
+        </div>
+      </div>
+      <div class="col-xs-12 col-md-6 ">
+        <h2> <%= @therapist.user.first %> <%= @therapist.user.last %> </h2>
+         <%= @therapist.address %> </p>
+        <p>preço do tratamento R$: <%= @therapist.session_price %> </p>
 
+        <% @avg_rating.times do %>
+          <i class="fas fa-star" style= "color:#F4D144"></i>
+        <% end%>
+      </div>
 
-
-
+    </div>
+  </div>
+</div>
