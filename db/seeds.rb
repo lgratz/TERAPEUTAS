@@ -10,7 +10,7 @@ inputs = {roberto: "R. Fradique Coutinho, 1350" , anderson: "R. Fidalga, 255", t
    inputs.each do |key, _value|
      f = User.new
      f.first = key
-     f.last = key
+     f.last = Faker::Artist.name
      f.email = "#{key}@gmail.com"
      f.password = key
      f.save
@@ -59,7 +59,7 @@ inputs = {roberto: "R. Fradique Coutinho, 1350" , anderson: "R. Fidalga, 255", t
      o.session_date = Faker::Date.forward(30).to_datetime
      o.user_id = User.all[1].id
      o.therapist_id = Therapist.all[rand(0..3)].id
-     rating = rand(0..5)
+     o.rating = rand(0..5)
      o.save
    end
 
