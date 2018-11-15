@@ -1,4 +1,5 @@
 class TherapistsController < ApplicationController
+  skip_before_action :authenticate_user!
 
   def index
     @therapists = Therapist.where.not(latitude: nil, longitude: nil)

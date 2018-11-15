@@ -16,7 +16,7 @@
   <div>
   <% @therapists.each do |therapist| %>
     <div class="therapist-list">
-      <h4> <strong> <%= current_user.first %> </strong> </h4>
+      <h4> <strong> <%= therapist.user.first %> </strong> </h4>
       <h5>Preço da sessão: R$<%= therapist.session_price %>,00</h5>
       <%= link_to "Agendar", therapist_path(therapist), class: "btn btn-md btn-success" %>
     </div>
