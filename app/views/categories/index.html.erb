@@ -4,3 +4,9 @@
 <h2> Name </h2>
 <h2> Description</h2>
 <img src="">
+
+<%= Category.each do |category| %>
+<%= category.name %>
+<%= category.description %>
+<%= image_tag "category.image", :class => "small-banner" %>
+<% end %>
