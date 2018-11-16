@@ -1,44 +1,41 @@
+<div class="container">
 
-<div class="container calendar">
-
-  <div class="panel panel-success">
-
-    <div class="form-container">
-      <%= form_tag therapists_path, method: :get, class: "form-inline" do %>
-         <p><%= text_field_tag :query,
-          params[:query],
-          class: "form-control",
-          placeholder: "digite aqui o seu endereço..."
-        %>
-      <%= submit_tag 'Data desejada', class: "btn btn-success"%></p>
-      <% end %>
-    </div>
-
-      <div class="panel-heading">
-        <table class="table">
-          <tr>
-            <th>12/11</th>
-            <th>12/11</th>
-            <th>12/11</th>
-            <th>12/11</th>
-            <th>12/11</th>
-          </tr>
-        </table>
-
+  <div class="container-calendar">
+      <div class="form-inline" class="datepicker">
+        <form action="/appointments" method="get" >
+          <input type="text" name="date_agenda" placeholder="Data desejada" class="form-control" >
+          <input type="submit" class = "btn btn-success">
+        </form>
       </div>
 
-      <div class="panel-body">
-        <table class="table text-centered">
-          <tr>
-            <td>12/11</td>
-            <td>12/11</td>
-            <td>12/11</td>
-            <td>12/11</td>
-            <td>12/11</td>
-          </tr>
-        </table>
-      </div>
+      <%  date = params[:date_agenda] ?  params[:date_agenda].to_date : Date.today %>
+      <% date_ini = (date - 2) >= Date.today ? (date - 2) : Date.today %>
+      <br>
 
-  </div>
+    <% (0..4).each do |col| %>
+      <div class="item-week">
+        <%= (date_ini + col).strftime("%^a") %> <br>
+      </div>
+    <% end %>
+
+    <% (0..4).each do |col| %>
+      <div class="item-day">
+        <%= (date_ini + col).strftime("%d %^b") %>
+      </div>
+    <% end %>
+
+    <% (0..4).each do |col| %>
+      <div class="item-week">
+        <% (8..20).each do |hour| %>
+         <table>
+           <tr>
+             <%= hour.to_s + ":00" %>
+           </tr>
+         </table>
+        <% end %>
+      </div>
+    <% end %>
+
+ </div>
 
 </div>
