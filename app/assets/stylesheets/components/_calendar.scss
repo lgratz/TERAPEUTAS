@@ -1,0 +1,27 @@
+.container-calendar {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  background-color: #E2E2E2;
+  height: 350px;
+  width: 400px;
+}
+
+.item-day {
+  font-size: 14px;
+  color: #fff;
+  flex: 1 0 18%;
+  margin: 0 2px;
+  text-align: center;
+  padding: 4px 4px;
+  background-color: #32B796;
+  border-color: #2da386;
+}
+.item-week {
+  color: black;
+  font-size: 12px;
+  flex: 1 0 18%;
+  margin: 0 2px;
+  text-align: center;
+  padding: 4px 4px;
+}
