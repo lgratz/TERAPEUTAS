@@ -1,5 +1,5 @@
 class TherapistsController < ApplicationController
-  skip_before_action :authenticate_user!
+  skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
     @therapists = Therapist.where.not(latitude: nil, longitude: nil)
@@ -25,17 +25,37 @@ class TherapistsController < ApplicationController
   end
 
   def new
+    @therapist = Therapist.new
   end
 
   def create
+    @therapist = Therapist.new(therapist_params)
+    @therapist.user = current_user
+    if @therapist.save
+      redirect_to therapist_path(@therapist)
+    else
+      render :new
+    end
   end
 
   def edit
   end
 
   def update
+    @therapist.update(therapist_params)
   end
 
   def destroy
+    @therapist.destroy
+  end
+
+  private
+
+  def therapist_params
+    params.require(:therapist).permit(:address, :phone, :session_price, :self_description, :photos)
+  end
+
+  def set_therapist
+    @therapist = Therapist.find(params[:id])
   end
 end
