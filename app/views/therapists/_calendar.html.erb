@@ -2,7 +2,7 @@
 
   <div class="container-calendar">
       <div class="form-inline" class="datepicker">
-        <form action="/appointments" method="get" >
+        <form action="/therapists/ <%= @terapist %>" method="get" >
           <input type="text" name="date_agenda" placeholder="Data desejada" class="form-control" >
           <input type="submit" class = "btn btn-success">
         </form>
