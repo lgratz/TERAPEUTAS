@@ -6,4 +6,6 @@ class User < ApplicationRecord
 
   has_one :therapist, dependent: :destroy
   has_many :appointments
+
+  mount_uploader :avatar, PhotoUploader
 end

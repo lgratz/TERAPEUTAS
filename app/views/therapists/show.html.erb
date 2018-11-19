@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col-xs-12 col-md-4 ">
         <div>
-          <img src='https://kitt.lewagon.com/placeholder/users/arthur-littm' class="avatar-large"/>
+          <%= cl_image_tag @therapist.user.avatar, height: 280, width: 280, radius: :max, crop: :thumb, gravity: :face %>
         </div>
       </div>
       <div class="col-xs-12 col-md-4 ">
@@ -15,7 +15,7 @@
           <i class="fas fa-star" style= "color:#F4D144"></i>
         <% end%>
     </div>
-      
+
       <div class="col-xs-12 col-md-4 ">
         <%= render 'therapists/calendar' %>
       </div>
