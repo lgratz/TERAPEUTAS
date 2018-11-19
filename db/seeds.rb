@@ -50,14 +50,15 @@ h.save
 
 
 
-inputs = {roberto: "R. Fradique Coutinho, 1350" , anderson: "R. Fidalga, 255", tabata: "R. Purpurina, 400",
-  davisjr: "R. Mourato Coelho, 1322", camila: "R. Girassol, 43" }
-inputs.each do |key, _value|
+inputs = {roberto: "https://images.unsplash.com/photo-1527980965255-d3b416303d12?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=d34b70c76d7e81532a3f922ba31f3a5f&auto=format&fit=crop&w=500&q=80", anderson: "https://www.thecompassioncenter.com/wp-content/uploads/2016/09/Sal-Cialino-Yoga-Instructor-Staten-Island.jpg", tabata: "https://picsum.photos/300/300?image=1027",
+  davisjr: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWYK8OnlcXV4pKGlHaPFKrf4Op1MrF2dzJiWA92sloBrwffWTAhQ", camila: "https://picsum.photos/300/300?image=832" }
+inputs.each do |key, value|
   f = User.new
   f.first = key
   f.last = Faker::Artist.name
   f.email = "#{key}@gmail.com"
   f.password = key
+  f.remote_avatar_url = value
   f.save
 end
 
