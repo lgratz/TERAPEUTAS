@@ -1,5 +1,7 @@
-<div class="text-center">
-
-  <h5><strong> R$<%= therapist.session_price%>,00</strong></h5>
-
+<div class="card-marker">
+  <%= cl_image_tag therapist.user.avatar, height: 30, width: 30, radius: :max, crop: :thumb, gravity: :face %>
+  <div class="text-center">
+    <h7>Preço sessão:</h7>
+    <h5><strong> R$<%= therapist.session_price%>,00</strong></h5>
+  </div>
 </div>
