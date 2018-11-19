@@ -36,7 +36,7 @@ inputs = {roberto: "R. Fradique Coutinho, 1350" , anderson: "R. Fidalga, 255", t
    a.save
 
    a = Therapist.new
-   a.address = "Rua Mourato Coelho, 1404"
+   a.address = "Rua Girassol, 700"
    a.phone = "11772221111"
    a.session_price = 80
    a.self_description = "Ofereço á você diversas opções de massagens: Relaxante, Alívio de dores, Terapêutica e Gestante"
@@ -45,7 +45,7 @@ inputs = {roberto: "R. Fradique Coutinho, 1350" , anderson: "R. Fidalga, 255", t
    a.save
 
    b = Therapist.new
-   b.address = "Av. Marquês de São Vicente, 2219"
+   b.address = "Av. Marquês de São Vicente, 576"
    b.phone = "1198719"
    b.session_price = 120
    b.self_description = "Especializada em massagens faciais e corporais, Radiofrequência Fracionada, Microagulhamento, Kobido, Criolipólise, Limpeza de Pele, entre outras técnicas que fazem da clínica um espaço de referência no ramo da estéticaaixar com a necessidade do seu corpo, trazendo o melhor resultado."
