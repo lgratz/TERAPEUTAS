@@ -1,12 +1,13 @@
 .banner {
   color: white;
   text-align: center;
-  height: calc(100vh - 140px);
+  height: 100vh;
   /* if you have a 70px navbar => height: calc(100vh - 70px); */
   background-size: cover !important;
   display: flex;
   align-items: center;
   justify-content: center;
+  padding-top: 40vh;
 }
 .banner h1 {
   font-size: 50px;
@@ -19,4 +20,18 @@
   color: rgb(255, 255, 255);
   opacity: 0.6;
   margin-bottom: 30px;
+}
+
+.centralize-content {
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.therapist-detail {
+  flex-item: 0 1 40%;
+  h2 {
+    font-size: 2em;
+  }
 }

@@ -34,6 +34,13 @@ class TherapistsController < ApplicationController
     @therapist = Therapist.new(therapist_params)
     @therapist.user = current_user
     if @therapist.save
+      params[:therapist][:category_ids].each do |id|
+        if Category.exists?(id)
+          service = Service.new(category: Category.find(id), therapist: @therapist)
+          service.save
+        end
+      end
+
       redirect_to therapist_path(@therapist)
     else
       render :new

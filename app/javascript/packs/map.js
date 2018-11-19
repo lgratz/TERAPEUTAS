@@ -23,7 +23,7 @@ if(navigator.geolocation){
       Mylat: position.coords.latitude,
       Mylng: position.coords.longitude
     };
-    // console.log(Mypos)
+    console.log(Mypos)
   });
  }
 
