@@ -12,6 +12,8 @@
 
           <%= f.input :address, label: "Endereço", required: true %>
 
+          <%= f.association :categories, label: "Serviços Ofereço ", required: true, as: :check_boxes %>
+
           <%= f.input :session_price, label: "Preço por sessão", required: true %>
 
           <%= f.input :phone, label: "Telefone para contato", required: true %>
