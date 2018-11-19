@@ -3,6 +3,7 @@
       <%= form_tag therapists_path, method: :get, class: "form-inline" do %>
          <p><%= text_field_tag :query,
           params[:query],
+          id: "therapist_address",
           class: "form-control",
           placeholder: "digite aqui o seu endereço..."
         %>
@@ -16,8 +17,8 @@
   <div>
   <% @therapists.each do |therapist| %>
     <div class="therapist-list">
-      <%= cl_image_tag therapist.photos, height: 80, width: 80, radius: :max, crop: :thumb, gravity: :face %>
-      <h4> <strong> <%= therapist.user.first %> </strong> </h4>
+      <%= cl_image_tag therapist.user.avatar, height: 80, width: 80, radius: :max, crop: :thumb, gravity: :face %>
+      <h4> <strong> <%= therapist.user.first %> <%= therapist.user.last %> </strong> </h4>
       <h5>Preço da sessão: R$<%= therapist.session_price %>,00</h5>
       <%= link_to "Agendar", therapist_path(therapist), class: "btn btn-md btn-success" %>
     </div>
