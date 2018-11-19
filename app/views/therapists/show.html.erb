@@ -23,11 +23,11 @@
 
   <div class="container">
     <div class="row">
-       <% Category.first(3).each do |category| %>
+       <% @therapist.services.each do |service| %>
         <!-- <%= link_to 'categories' do %> -->
           <div class="col-xs-12 col-sm-4">
-            <div class="card show" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path category.image%>);" >
-              <h2 class=""> <%= category.name  %></h2>
+            <div class="card show" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path service.category.image%>);" >
+              <h2 class=""> <%= service.category.name  %></h2>
 
               <% end %>
             </div>
