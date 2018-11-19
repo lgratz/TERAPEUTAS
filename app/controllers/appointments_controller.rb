@@ -10,7 +10,7 @@ class AppointmentsController < ApplicationController
     if @appointment.save
       redirect_to appointments_path
     else
-      redirect_to therapist_path(":#{therapist_id}")
+      redirect_to therapists_path
     end
   end
 
