@@ -1,41 +1,51 @@
-<div class="container">
+  <div class="wrap-calendar">
+    <div class="row">
+      <div class="col-xs-12">
 
-  <div class="container-calendar">
-      <div class="form-inline" class="datepicker">
-        <form action="/therapists/ <%= @terapist %>" method="get" >
-          <input type="text" name="date_agenda" placeholder="Data desejada" class="form-control" >
-          <input type="submit" class = "btn btn-success">
-        </form>
-      </div>
+          <%= simple_form_for :agenda, html: { class: "form-inline" }, method: "get" do |f| %>
+            <%= f.input :date, as: :string, label: false, required: false,
+            placeholder: "Data desejada", input_html: {class: "form-control datepicker"} %>
+            <%= f.button :submit, "Ver", class: "btn btn-default" %>
+          <% end %>
+        </div>
+    </div>
 
-      <%  date = params[:date_agenda] ?  params[:date_agenda].to_date : Date.today %>
+    <div class="container-titles">
+      <%  date = params[:agenda].nil? || params[:agenda][:date].empty? ?
+        Date.today : Date.parse(params[:agenda][:date]) %>
       <% date_ini = (date - 2) >= Date.today ? (date - 2) : Date.today %>
       <br>
 
-    <% (0..4).each do |col| %>
-      <div class="item-week">
-        <%= (date_ini + col).strftime("%^a") %> <br>
-      </div>
-    <% end %>
 
-    <% (0..4).each do |col| %>
-      <div class="item-day">
-        <%= (date_ini + col).strftime("%d %^b") %>
-      </div>
-    <% end %>
+      <% (0..4).each do |col| %>
+        <div class="item item-week">
+          <%= (date_ini + col).strftime("%^a") %> <br>
+        </div>
+      <% end %>
 
-    <% (0..4).each do |col| %>
-      <div class="item-week">
-        <% (8..20).each do |hour| %>
-         <table>
-           <tr>
-             <%= hour.to_s + ":00" %>
-           </tr>
-         </table>
-        <% end %>
-      </div>
-    <% end %>
+      <% (0..4).each do |col| %>
+        <div class="item item-day">
+          <%= (date_ini + col).strftime("%d %^b") %>
+        </div>
+      <% end %>
+    </div>
 
- </div>
 
-</div>
+    <div class="container-calendar">
+      <% (0..4).each do |col| %>
+         <% (8..20).each do |hour| %>
+           <div class="item item-hour">
+               <%= link_to "#{hour.to_s}:00", '#', class: 'appointment-time', data: { datetime: "#{date_ini + col} #{hour}:00:00"} %>
+           </div>
+          <% end %>
+
+      <% end %>
+   </div>
+
+   <%= simple_form_for [@therapist, @appointment] do |f| %>
+     <%= f.input :session_date, as: :hidden %>
+     <%= f.button :submit, "Agendar", class: "button text-center" %>
+   <% end %>
+
+  </div>
+

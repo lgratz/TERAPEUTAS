@@ -22,6 +22,7 @@ class TherapistsController < ApplicationController
   def show
     @therapist = Therapist.find(params[:id])
     @avg_rating = Appointment.where(therapist: @therapist).average(:rating).to_i
+    @appointment = Appointment.new
 
   end
 
