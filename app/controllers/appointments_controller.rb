@@ -4,13 +4,15 @@ class AppointmentsController < ApplicationController
   end
 
   def create
+    @therapist = Therapist.find(params[:therapist_id])
     @appointment = Appointment.new(appointment_params)
-    @appointment.therapist_id = Therapist.find(params[:therapist_id])
-    @appointment.user_id = current_user
+    @appointment.therapist = @therapist
+    @appointment.price = @therapist.session_price
+    @appointment.user = current_user
     if @appointment.save
       redirect_to appointments_path
     else
-      redirect_to therapists_path
+      redirect_to therapist_path(@therapist)
     end
   end
 
@@ -33,6 +35,6 @@ class AppointmentsController < ApplicationController
   private
 
   def appointment_params
-    params.require(:appointment).permit(:session_date)
+    params.require(:appointment).permit(:session_date, :category_selected)
   end
 end

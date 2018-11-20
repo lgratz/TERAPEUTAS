@@ -27,6 +27,7 @@
               <td><%= appointment.session_date %></td>
               <td><%= appointment.user.first.capitalize %></td>
               <td><%= appointment.therapist.user.first.capitalize + " " + appointment.therapist.user.first.capitalize%></td>
+              <td><%= appointment.category_selected.capitalize if appointment.category_selected %></td>
               <td><%= appointment.therapist.address %></td>
               <td>R$ <%= appointment.therapist.session_price %>,00</td>
               <td><%= appointment.status %></td>
