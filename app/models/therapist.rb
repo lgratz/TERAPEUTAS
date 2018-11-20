@@ -8,4 +8,6 @@ class Therapist < ApplicationRecord
   after_validation :geocode, if: :will_save_change_to_address?
 
   mount_uploader :photos, PhotoUploader
+
+  # monetize :price_cents
 end
