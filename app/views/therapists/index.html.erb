@@ -24,9 +24,9 @@
         <i class="fas fa-star" style= "color:#F4D144"></i>
       </div>
       <div class="card-info-list">
-        <h4> <strong> <%= therapist.user.first %> <%= therapist.user.last %> </strong> </h4>
+        <h4> <strong> <%= therapist.user.first.capitalize %> <%= therapist.user.last.capitalize %> </strong> </h4>
           <% therapist.services.each do |service| %>
-          <h5>Serviços:<%= service.category.name %></h5>
+          <h5><%= service.category.name %></h5>
         <% end %>
       </div>
       <div class="card-info-list">

@@ -12,21 +12,26 @@
           <table class="table" style="width:100%">
             <tr>
               <th>Data</th>
-              <th>Usuário</th>
+              <th>Horário</th>
               <th>Terapeuta</th>
+              <th>Terapia</th>
               <th>Endereço</th>
+              <!-- <th>Telefone</th> -->
               <th>Preço</th>
+              <th>Rating</th>
               <th>Status</th>
             </tr>
 
             <% @appointments.each do |appointment| %>
               <tr>
-                <td><%= appointment.session_date %></td>
-                <td><%= appointment.user.first.capitalize %></td>
+                <td><%= appointment.session_date.strftime("%d/%m/%y") %></td>
+                <td><%= appointment.session_date.strftime("%R") %></td>
                 <td><%= appointment.therapist.user.first.capitalize + " " + appointment.therapist.user.last.capitalize%></td>
                 <td><%= appointment.category_selected.capitalize if appointment.category_selected %></td>
                 <td><%= appointment.therapist.address %></td>
+                <!-- <td><%= appointment.therapist.phone %></td> -->
                 <td>R$ <%= appointment.therapist.session_price %>,00</td>
+                <td><%= appointment.rating %></td>
                 <td><%= appointment.status %></td>
 
               </tr>
