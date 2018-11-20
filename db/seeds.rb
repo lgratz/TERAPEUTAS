@@ -98,42 +98,32 @@ b.user_id = User.all[4].id
 b.save
 
 Therapist.all.each do |therapist|
-  Category.all.sample(6).each do |category|
+  Category.all.sample(rand(0..5)).each do |category|
     service = Service.new(therapist: therapist, category: category)
     service.save
   end
 end
 
 
-12.times do
-  o = Appointment.new
-  o.session_date = Faker::Date.forward(30).to_datetime
-  o.user_id = User.all[1].id
-  o.therapist_id = Therapist.all[rand(0..3)].id
-  o.rating = rand(0..5)
-  o.save
+[-1, 0 , 1].flatten.each do |day|
+  (8..20).to_a.sample(6).each do |hour|
+    o = Appointment.new
+    o.session_date = "#{Date.today + day} #{hour}:00:00".to_datetime
+    o.user_id = User.all[rand(0..4)].id
+    o.therapist_id = Therapist.all[1].id
+    o.category_selected = Therapist.all[1].services.sample(1).first.category.name
+    o.price = Therapist.all[1].session_price
+    o.status = day == -1 ? "Rating pendente" : "Agendado"
+    o.rating = nil
+    o.save
+  end
 end
 
-v = Appointment.new
-v.session_date = Faker::Date.forward(30).to_datetime
-v.status = "Pagamento pendente"
-v.user_id = User.all[1].id
-v.therapist_id = Therapist.all[rand(0..3)].id
-v.save
-
-w = Appointment.new
-w.session_date = Faker::Date.forward(30).to_datetime
-w.status = "Pagamento pendente"
-w.user_id = User.all[1].id
-w.therapist_id = Therapist.all[rand(0..3)].id
-w.save
-
 
 puts "Seeds created yay!"
 
 
-puts "Seeds created yay!"
-  # This file should contain all the record creation needed to seed the database with its default values.
+# This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 #
 # Examples:
