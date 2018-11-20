@@ -1,2 +1,19 @@
-<h1>Therapists#edit</h1>
-<p>Find me in app/views/therapists/edit.html.erb</p>
+<% bg_image = image_path('therapist_edit.jpg') %>
+
+<div class="banner-registration" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('<%= bg_image %>');">
+
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-md-8 col-md-offset-4">
+
+        <br>
+        <h2>Meus dados cadastrais</h2>
+
+          <%= render 'form_therapist' %>
+
+        <br><br>
+      </div>
+    </div>
+  </div>
+
+</div>

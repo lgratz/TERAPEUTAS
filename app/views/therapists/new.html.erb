@@ -1,36 +1,19 @@
-<div class="container text-justify">
+<% bg_image = image_path('therapist_new.jpg') %>
 
-  <h2>Terapeuta, cadastre o seu perfil</h2>
+<div class="banner-registration" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('<%= bg_image %>');">
 
-  <div class="row">
-    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-md-8 col-md-offset-4">
 
-      <%= simple_form_for(@therapist) do |f| %>
-        <div class="form-inputs">
+        <br>
+        <h2>Cadastre-se e impacte muitas vidas</h2>
 
-          <%= f.input :self_description, label: "Descreva os seus serviços", required: true %>
+          <%= render 'form_therapist' %>
 
-          <%= f.input :address, label: "Endereço", required: true %>
-
-          <%= f.association :categories, label: "Serviços Ofereço ", required: true, as: :check_boxes %>
-
-          <%= f.input :session_price, label: "Preço por sessão", required: true %>
-
-          <%= f.input :phone, label: "Telefone para contato", required: true %>
-
-          <%= f.input :services, label: "Terapias oferecidas", required: true %>
-
-          <%= f.input :photos %>
-
-          <%= f.input :photos_cache, as: :hidden %>
-
-        </div>
-
-        <div class="form-actions">
-          <%= f.button :submit, "Cadastrar", class: "btn btn-primary" %>
-        </div>
-      <% end %>
-
+        <br><br>
+      </div>
     </div>
   </div>
+
 </div>

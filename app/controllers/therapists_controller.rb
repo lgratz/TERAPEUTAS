@@ -1,5 +1,6 @@
 class TherapistsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
+  before_action :set_therapist, only: [:show, :edit, :update, :destroy]
 
   def index
     @therapists = Therapist.where.not(latitude: nil, longitude: nil)
@@ -20,10 +21,8 @@ class TherapistsController < ApplicationController
   end
 
   def show
-    @therapist = Therapist.find(params[:id])
     @avg_rating = Appointment.where(therapist: @therapist).average(:rating).to_i
-    @appointment = Appointment.new
-
+    # @appointment = Appointment.new
   end
 
   def new
@@ -51,7 +50,11 @@ class TherapistsController < ApplicationController
   end
 
   def update
-    @therapist.update(therapist_params)
+    if @therapist.update(therapist_params)
+      redirect_to therapist_path(@therapist)
+    else
+      render :edit
+    end
   end
 
   def destroy

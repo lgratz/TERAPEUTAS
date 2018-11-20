@@ -35,3 +35,15 @@
     font-size: 2em;
   }
 }
+
+.banner-registration {
+  color: white;
+  text-align: justify;
+  min-height: calc(100vh - 140px);
+  /* if you have a 70px navbar => height: calc(100vh - 70px); */
+  background-size: cover !important;
+}
+
+.registration-associations {
+  color: white !important;
+}
