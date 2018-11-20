@@ -4,6 +4,16 @@ class AppointmentsController < ApplicationController
   end
 
   def create
+    @therapist = Therapist.find(params[:therapist_id])
+    @appointment = Appointment.new(appointment_params)
+    @appointment.therapist = @therapist
+    @appointment.price = @therapist.session_price
+    @appointment.user = current_user
+    if @appointment.save
+      redirect_to appointments_path
+    else
+      redirect_to therapist_path(@therapist)
+    end
   end
 
   def edit
@@ -25,11 +35,6 @@ class AppointmentsController < ApplicationController
   private
 
   def appointment_params
-    params.require(:appointment).permit(:session_date, :price, :status, :rating)
+    params.require(:appointment).permit(:session_date, :category_selected)
   end
-
-  def set_appointment
-    @appointment = Appointment.find(params[:id])
-  end
-
 end
