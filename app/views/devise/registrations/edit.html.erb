@@ -1,47 +1,57 @@
-<div class="container">
+<% bg_image = image_path('edit_user.jpg') %>
 
-  <h2>Dados do Usuário</h2>
+<div class="banner-registration" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('<%= bg_image %>');">
 
-  <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-    <%= f.error_notification %>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-md-7">
 
-    <div class="form-inputs">
-      <%= f.input :first, label: "Nome", required: true, autofocus: true %>
-      <%= f.input :last, label: "Sobrenome", required: true, autofocus: true %>
-      <%= f.input :email, required: true, autofocus: true %>
-      <%= f.input :avatar %>
-      <%= f.input :avatar_cache, as: :hidden %>
+        <br>
+        <h2>Dados do Usuário</h2>
 
+        <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+          <%= f.error_notification %>
 
-      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-        <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
-      <% end %>
-
-      <%= f.input :current_password, label: "Senha atual",
-                  placeholder: "Digite sua senha para confirmar alterações",
-                  required: true %>
+          <div class="form-inputs">
+            <%= f.input :first, label: "Nome", required: true, autofocus: true %>
+            <%= f.input :last, label: "Sobrenome", required: true, autofocus: true %>
+            <%= f.input :email, required: true, autofocus: true %>
+            <%= f.input :avatar %>
+            <%= f.input :avatar_cache, as: :hidden %>
 
 
-      <br>
-      <%= f.input :password, label: "Alterar a senha",
-                  placeholder: "Deixe em branco caso não queira alterar",
-                  required: false %>
-      <%= f.input :password_confirmation, label: "Confirme a nova senha",
-                  placeholder: "Deixe em branco caso não queira alterar",
-                  required: false %>
+            <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+              <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
+            <% end %>
 
+            <%= f.input :current_password, label: "Senha atual",
+                        placeholder: "Digite sua senha para confirmar alterações",
+                        required: true %>
+
+
+            <br>
+            <%= f.input :password, label: "Alterar a senha",
+                        placeholder: "Deixe em branco caso não queira alterar",
+                        required: false %>
+            <%= f.input :password_confirmation, label: "Confirme a nova senha",
+                        placeholder: "Deixe em branco caso não queira alterar",
+                        required: false %>
+
+          </div>
+
+          <div class="form-actions">
+            <%= f.button :submit, "Alterar dados", class: "btn btn-success" %>
+          </div>
+        <% end %>
+
+        <!-- <h3>Cancel my account</h3>
+       -->
+        <br>
+        <%= link_to "Sair", root_path, class: "btn btn-default" %>
+        <p> <%= link_to "Cancelar minha conta", registration_path(resource_name), data: { confirm: "Tem certeza que quer cancelar sua conta?" }, method: :delete %></p>
+
+      </div>
     </div>
-
-    <div class="form-actions">
-      <%= f.button :submit, "Alterar dados", class: "btn btn-success" %>
-    </div>
-  <% end %>
-
-  <!-- <h3>Cancel my account</h3>
- -->
-  <br>
-  <%= link_to "Sair", root_path, class: "btn btn-default" %>
-  <p> <%= link_to "Cancelar minha conta", registration_path(resource_name), data: { confirm: "Tem certeza que quer cancelar sua conta?" }, method: :delete %></p>
-
+  </div>
 
 </div>

@@ -10,6 +10,7 @@
 
     <%= link_to raw("<i class='fas fa-book'></i><br> Conheça Mais"), categories_path, class: "navbar-wagon-item navbar-wagon-link text-center" %>
 
+    <%= link_to raw("<i class='fa fa-hand-paper'></i><br> Sou Terapeuta"), pages_path, class: "navbar-wagon-item navbar-wagon-link text-center" %>
 
     <% if user_signed_in? %>
 
@@ -45,9 +46,14 @@
                 <% end %>
               </li>
               <li>
-                <%= link_to raw("<i class='far fa-calendar-alt'></i> Agendei para mim"), appointments_path, class: "navbar-wagon-item navbar-wagon-link text-center" %>
+                <%= link_to therapist_path(current_user.therapist) do %>
+                    <i class="fas fa-user-circle"></i>  <%= t(".settings", default: "Minha página") %>
+                <% end %>
               </li>
-            <% end %>
+              <li>
+                <%= link_to raw("<i class='far fa-calendar-alt'></i> Agendei para mim"), appointments_path, class: "navbar-wagon-item navbar-wagon-link text-center" %>
+                <% end %>
+              </li>
 
             <li>
               <%= link_to destroy_user_session_path, method: :delete do %>
@@ -58,7 +64,6 @@
         </div>
       </div>
     <% else %>
-      <%= link_to raw("<i class='fa fa-hand-paper'></i><br> Sou Terapeuta"), pages_path, class: "navbar-wagon-item navbar-wagon-link text-center" %>
 
       <!-- Login link (when logged out) -->
       <%= link_to raw("<i class='fas fa-sign-in-alt'></i><br> Entrar"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link text-center" %>
