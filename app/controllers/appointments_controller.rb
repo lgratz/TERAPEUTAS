@@ -9,6 +9,7 @@ class AppointmentsController < ApplicationController
     @appointment.therapist = @therapist
     @appointment.price = @therapist.session_price
     @appointment.user = current_user
+    @appointment.status = @appointment.session_date.to_date == Date.today ? "Aguardando rating" : "Agendado"
     if @appointment.save
       redirect_to appointments_path
     else
