@@ -1,0 +1,66 @@
+.lisa-container-name {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    display: flex;
+    justify-content: center;
+}
+
+.therapist-profile-container {
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-top: 50px;
+    margin-bottom: 100px;
+
+}
+
+.lisa-self_description {
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+
+}
+
+.lisa-price-description {
+    font-size: 15px;
+    color: red;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+
+}
+
+.lisa-row {
+  margin-top: 20px;
+  margin-bottom: 20px;
+
+}
+
+.lisa-container {
+  display: flex;
+
+}
+
+.col-12 {
+  flex: 0 0 100%;
+  max-width: 100%;
+}
+
+.lisa-row h1 {
+  font-size: 50px;
+
+}
+
+
+.name {
+  flex: 1 1 100%
+}
+
+ .self_description {
+  font-size: 15px;
+}

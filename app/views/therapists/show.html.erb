@@ -1,45 +1,53 @@
-<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('assets/banner_terapeutas.png');">
 
 
-  <div class="container">
-    <%= render 'calendar' %>
-    <div class="row">
-      <div class="centralize-content">
-        <div class="col-xs-6 col-md-4 col-md-offset-1 ">
-          <div class='avatar-radius'>
-            <%= cl_image_tag @therapist.user.avatar, height: 280, width: 280, crop: :thumb, gravity: :face %>
+  <div class="lisa-container-name">
+     <div class="lisa-row">
+       <div class="col-12">
+        <h1 class="lisa-name"> <%= @therapist.user.first.capitalize %> <%= @therapist.user.last %> </h1>
+       </div>
+     </div>
+  </div>
+    <div class="container therapist-profile-container">
+      <div class="lisa-row">
+        <div class="col-xs-12 col-md-6 ">
+          <div class="lisa-item-card">
+              <div class='img lisa-avatar-radius'>
+                <%= cl_image_tag @therapist.user.avatar, height: 280, width: 280, crop: :thumb, gravity: :face %>
+              </div>
+            <div class="lisa-card-description">
+              <p class="lisa-self_description"> <%= @therapist.self_description %> </p>
+              <p class= "lisa-price-description">Preço do tratamento R$: <%= @therapist.session_price %> </p>
+            </div>
+             <div class="lisa-div">
+              <% @avg_rating.times do %>
+              <i class="fas fa-star" style= "color:#F4D144"></i>
+              <% end%>
+            </div>
           </div>
         </div>
-        <div class="col-xs-6 col-md-4 ">
-          <div class="therapist-detail">
-            <h2> <%= @therapist.user.first %> <%= @therapist.user.last %> </h2>
-             <%= @therapist.address %> </p>
-            <p>preço do tratamento R$: <%= @therapist.session_price %> </p>
-
-            <% @avg_rating.times do %>
-              <i class="fas fa-star" style= "color:#F4D144"></i>
-            <% end%>
+      </div>
+      <div class="lisa-row">
+        <div class="col-xs-12 col-md-6 ">
+          <div class="lisa-item-card">
+            <div class="lisa-calendar-content">
+             <%= render 'calendar' %>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</div>
+      <!-- <div class="row"> -->
+         <!-- <div class="col-xs-12 col-sm-4"> -->
+          <!-- <div class="lisa-item-card"> -->
+           <!-- <% @therapist.services.each do |service| %> -->
+           <!-- <%= link_to 'categories' do %> -->
+            <!-- <div class="card show" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path service.category.image%>);" -->
+              <!-- <h2 class=""> <%= service.category.name  %></h2> -->
+            <!-- <% end %> -->
+             <!-- </div> -->
+            <!-- </div> -->
+          <!-- </div> -->
+          <!-- <% end %> -->
 
-  <div class="container">
-    <div class="row">
-       <% @therapist.services.each do |service| %>
-        <!-- <%= link_to 'categories' do %> -->
-          <div class="col-xs-12 col-sm-4">
-            <div class="card show" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path service.category.image%>);" >
-              <h2 class=""> <%= service.category.name  %></h2>
-
-              <% end %>
-            </div>
-          </div>
-        <!-- <% end %> -->
-
-    </div>
-  </div>
 
 
