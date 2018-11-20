@@ -109,12 +109,18 @@ end
   (8..20).to_a.sample(6).each do |hour|
     o = Appointment.new
     o.session_date = "#{Date.today + day} #{hour}:00:00".to_datetime
-    o.user_id = User.all[rand(0..4)].id
+    o.user_id = User.all[1].id
     o.therapist_id = Therapist.all[1].id
     o.category_selected = Therapist.all[1].services.sample(1).first.category.name
     o.price = Therapist.all[1].session_price
-    o.status = day == -1 ? "Rating pendente" : "Agendado"
-    o.rating = nil
+    if day == -1
+      o.status = "Finalizado"
+      o.rating = rand(3..5)
+    elsif day == 0
+      o.status = "Aguardando rating"
+    else
+      o.status = "Agendado"
+    end
     o.save
   end
 end

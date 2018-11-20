@@ -22,7 +22,7 @@ class TherapistsController < ApplicationController
 
   def show
     @avg_rating = Appointment.where(therapist: @therapist).average(:rating).to_i
-    # @appointment = Appointment.new
+    @appointment = Appointment.new
   end
 
   def new
