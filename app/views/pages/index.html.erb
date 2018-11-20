@@ -1,6 +1,8 @@
-<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('assets/banner-home-terapeutas');">
+<% bg_image = image_path('banner-home-terapeutas.jpg') %>
+
+<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('<%= bg_image %>');">
   <div class="banner-content">
-    <h1>Cadastre-se e tenha mais clientes</h1>
-    <%= link_to "Cdastrar serviços", new_therapist_path, class: "btn btn-md btn-success" %>
+    <h1>Concentre toda a energia em seus clientes</h1>
+    <%= link_to "Cadastrar agora", new_therapist_path, class: "btn btn-lg btn-success" %>
   </div>
 </div>

@@ -27,7 +27,7 @@ class AppointmentsController < ApplicationController
   end
 
   def index
-    @appointments = current_user.appointments.all
+    @appointments = current_user.appointments.all.sort_by{|app| app.session_date}.reverse
   end
 
   def destroy

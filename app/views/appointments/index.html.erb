@@ -16,7 +16,7 @@
               <th>Terapeuta</th>
               <th>Terapia</th>
               <th>Endereço</th>
-              <th>Telefone</th>
+              <!-- <th>Telefone</th> -->
               <th>Preço</th>
               <th>Rating</th>
               <th>Status</th>
@@ -29,7 +29,7 @@
                 <td><%= appointment.therapist.user.first.capitalize + " " + appointment.therapist.user.last.capitalize%></td>
                 <td><%= appointment.category_selected.capitalize if appointment.category_selected %></td>
                 <td><%= appointment.therapist.address %></td>
-                <td><%= appointment.therapist.phone %></td>
+                <!-- <td><%= appointment.therapist.phone %></td> -->
                 <td>R$ <%= appointment.therapist.session_price %>,00</td>
                 <td><%= appointment.rating %></td>
                 <td><%= appointment.status %></td>
