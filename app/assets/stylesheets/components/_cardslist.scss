@@ -14,8 +14,24 @@
 }
 
 .therapist-list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   margin: 12px;
   box-shadow: 6px 6px 8px grey;
   border: 1px solid black;
   width: 500px;
+  background-color: #f4f9f8;
+}
+
+.card-therapist {
+  display: flex;
+  align-items: center;
+}
+
+.card-info-list {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 15px;
 }

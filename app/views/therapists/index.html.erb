@@ -14,13 +14,24 @@
 
 
 <div class="main-container">
-  <div>
+  <div calss="card-therapist">
   <% @therapists.each do |therapist| %>
     <div class="therapist-list">
-      <%= cl_image_tag therapist.user.avatar, height: 80, width: 80, radius: :max, crop: :thumb, gravity: :face %>
-      <h4> <strong> <%= therapist.user.first %> <%= therapist.user.last %> </strong> </h4>
-      <h5>Preço da sessão: R$<%= therapist.session_price %>,00</h5>
-      <%= link_to "Agendar", therapist_path(therapist), class: "btn btn-md btn-success" %>
+      <div class="card-info-list">
+        <%= cl_image_tag therapist.user.avatar, height: 80, width: 80, radius: :max, crop: :thumb, gravity: :face %>
+        <h5>Sessão:</h5>
+        <h5><strong> R$<%= therapist.session_price %>,00</strong></h5>
+        <i class="fas fa-star" style= "color:#F4D144"></i>
+      </div>
+      <div class="card-info-list">
+        <h4> <strong> <%= therapist.user.first %> <%= therapist.user.last %> </strong> </h4>
+          <% therapist.services.each do |service| %>
+          <h5>Serviços:<%= service.category.name %></h5>
+        <% end %>
+      </div>
+      <div class="card-info-list">
+        <%= link_to "Agendar", therapist_path(therapist), class: "btn btn-md btn-success" %>
+      </div>
     </div>
   <% end %>
   </div>
