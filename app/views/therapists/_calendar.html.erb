@@ -42,7 +42,7 @@
 
     <div class="item-day">
      <%= simple_form_for [@therapist, @appointment] do |f| %>
-       <%= f.input :category_selected, label: "Terapia", collection: @therapist.services.map{ |serv| serv.category.name }, required: true %>
+       <%= f.input :category_selected, prompt: "Selecione a terapia desejada", label: false, collection: @therapist.services.map{ |serv| serv.category.name }.sort, include_blank: false, input_html: { class: "btn dropdown-toggle"} %>
        <%= f.input :session_date, as: :hidden %>
        <%= f.button :submit, "Agendar", class: "button" %>
      <% end %>

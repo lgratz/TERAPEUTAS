@@ -33,13 +33,7 @@ class TherapistsController < ApplicationController
     @therapist = Therapist.new(therapist_params)
     @therapist.user = current_user
     if @therapist.save
-      params[:therapist][:category_ids].each do |id|
-        if Category.exists?(id)
-          service = Service.new(category: Category.find(id), therapist: @therapist)
-          service.save
-        end
-      end
-
+      set_categories
       redirect_to therapist_path(@therapist)
     else
       render :new
@@ -51,6 +45,10 @@ class TherapistsController < ApplicationController
 
   def update
     if @therapist.update(therapist_params)
+      Service.where(therapist_id: @therapist).each do |service|
+        service.destroy
+      end
+      set_categories
       redirect_to therapist_path(@therapist)
     else
       render :edit
@@ -69,5 +67,14 @@ class TherapistsController < ApplicationController
 
   def set_therapist
     @therapist = Therapist.find(params[:id])
+  end
+
+  def set_categories
+    params[:therapist][:category_ids].each do |id|
+      if Category.exists?(id)
+        service = Service.new(category: Category.find(id), therapist: @therapist)
+        service.save
+      end
+    end
   end
 end
