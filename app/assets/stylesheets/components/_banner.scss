@@ -20,6 +20,11 @@
   opacity: 0.6;
   margin-bottom: 30px;
 }
+.banner-content {
+  h3 {
+    margin-bottom: 20px;
+  }
+}
 
 .centralize-content {
   overflow: hidden;
@@ -49,4 +54,8 @@
 
 .background-fill {
   background-size: cover !important;
+}
+
+.margin-bottom {
+  margin-bottom: 10px;
 }
