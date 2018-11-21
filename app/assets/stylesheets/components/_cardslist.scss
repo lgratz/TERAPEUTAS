@@ -44,15 +44,28 @@
 
 .weal_funciona {
   position: relative;
-  padding-top: 70px;
+  padding-top: 40px;
   padding-bottom: 43px;
-  // background-image:
+  background-color: #dce2e1;
+}
+
+.weal_destaque {
+  position: relative;
+  padding-top: 40px;
+  padding-bottom: 43px;
+  background-color: #2D8781;
 }
 
 .weal_titulo {
   text-align: center;
   margin-bottom: 38px;
   color: #2D8781;
+}
+
+.weal_titulo_destaque {
+  text-align: center;
+  margin-bottom: 38px;
+  color: #dce2e1;
 }
 
 .weal_funciona-item {
