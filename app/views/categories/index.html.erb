@@ -1,9 +1,9 @@
-<div style= "background-image: url(assets/background.png);">
+<div class="background-fill" style= "background-image: url(assets/background.png);">
 
-<div class="container" style=>
-      <div class="row">
-  <% @category.each do |category| %>
-    <div class='card_category'>
+  <div class="container">
+    <div class="centralize-cards">
+      <% @category.each do |category| %>
+      <div class='card_category'>
         <div class="col-sm-8 ">
           <h2 class="text-center">  <%= category.name %> </h2>
           <p class="text-center"> <%= category.description %> </p>
@@ -12,9 +12,9 @@
           <%= image_tag category.image, class: "img-responsive" %>
         </div>
       </div>
-  <% end %>
-       </div>
-</div>
+      <% end %>
+    </div>
+  </div>
 </div>
 
 
