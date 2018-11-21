@@ -3,7 +3,7 @@
   <div class="container">
     <div class="centralize-cards">
       <% @category.each do |category| %>
-      <div class='card_category'>
+      <div data-aos="fade-down" data-aos-easing="linear" data-aos-duration="900" class='card_category'>
         <div class="col-sm-8 ">
           <h2 class="text-center">  <%= category.name %> </h2>
           <p class="text-center"> <%= category.description %> </p>
