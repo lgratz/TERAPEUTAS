@@ -3,7 +3,7 @@ function initUpdateNavbarOnScroll() {
   if (navbar) {
     window.addEventListener('scroll', () => {
       if (window.scrollY >= window.innerHeight) {
-        navbar.classList.add('navbar-home');
+        navbar.classList.add('navbar-wagon');
       } else {
         navbar.classList.add('navbar-wagon');
       }
