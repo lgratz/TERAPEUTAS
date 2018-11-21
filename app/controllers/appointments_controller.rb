@@ -9,7 +9,12 @@ class AppointmentsController < ApplicationController
     @appointment.therapist = @therapist
     @appointment.price = @therapist.session_price
     @appointment.user = current_user
-    @appointment.status = @appointment.session_date.to_date == Date.today ? "Aguardando rating" : "Agendado"
+
+    #raise("nil params") if params[:session_date].nil? || params[:category_selected].nil?
+    unless params[:session_date].nil?
+      @appointment.status = @appointment.session_date.to_date == Date.today ? "Aguardando rating" : "Agendado"
+    end
+
     if @appointment.save
       redirect_to appointments_path
     else

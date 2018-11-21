@@ -2,7 +2,7 @@
     <%= simple_form_for :agenda, html: { class: "form-inline" }, method: "get" do |f| %>
       <%= f.input :date, as: :string, label: false, required: false,
       placeholder: "Data desejada", input_html: {class: "form-control datepicker"} %>
-      <%= f.button :submit, "Ver", class: "btn btn-default" %>
+      <%= f.button :submit, "Selecionar", class: "btn btn-default" %>
     <% end %>
 
     <div class="container-titles">
@@ -28,23 +28,40 @@
 
     <div class="container-calendar">
       <% (0..4).each do |col| %>
-        <div class="item item-hour">
+        <div class="item item-hour item-link">
 
           <% (8..20).each do |hour| %>
-           <div class="item item-link">
-               <%= link_to "#{hour.to_s}:00", '#', class: 'appointment-time', data: { datetime: "#{date_ini + col} #{hour}:00:00"} %>
-           </div>
+
+
+              <% if @therapist.appointments.all? { |a| a.session_date.to_datetime != "#{date_ini + col} #{hour}:00:00".to_datetime } %>
+                <div class="item item-link item-hour appointment-time">
+
+                  <%= link_to "#{hour.to_s}:00", '#', data: { datetime: "#{date_ini + col} #{hour}:00:00"} %>
+
+                </div>
+              <% end %>
           <% end %>
 
         </div>
       <% end %>
     </div>
 
-    <div class="item-day">
+    <div class="blank-space">
+    </div>
+
+    <div class="">
      <%= simple_form_for [@therapist, @appointment] do |f| %>
+
        <%= f.input :category_selected, prompt: "Selecione a terapia desejada", label: false, collection: @therapist.services.map{ |serv| serv.category.name }.sort, include_blank: false, input_html: { class: "btn dropdown-toggle"} %>
+
        <%= f.input :session_date, as: :hidden %>
-       <%= f.button :submit, "Agendar", class: "button" %>
+
+      <div class="item-day text-center">
+        <%= f.button :submit, "Agendar", class: "btn item-day btn-block" %>
+      </div>
+
+
+
      <% end %>
     </div>
 

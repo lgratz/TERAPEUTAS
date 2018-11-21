@@ -3,8 +3,8 @@
   flex-direction: column;
   justify-content: flex-start;
   width: 450px;
-  background-color: #E2E2E2;
-  height: 400px;
+  background-color: #F1F1F1;
+  height: 480px;
 }
 
 .data-search{
@@ -16,7 +16,7 @@
 }
 
 .form-inline{
-  padding: 10px 0px 0 0px;
+  padding: 10px 30px;
 }
 
 .container-calendar {
@@ -24,7 +24,7 @@
   justify-content: flex-start;
   font-size: 16px;
   flex-wrap: wrap;
-  background-color: #E2E2E2;
+  background-color: #F1F1F1;
   overflow: auto;
   width: 450px;
   padding: 5px 15px 5px 15px;
@@ -36,7 +36,7 @@
   justify-content: flex-start;
   font-size: 16px;
   flex-wrap: wrap;
-  background-color: #E2E2E2;
+  background-color: #F1F1F1;
   height: 75px;
   width: 450px;
   padding: 10px 15px 0px 15px;
@@ -47,6 +47,10 @@
   margin: 0 3px;
   text-align: center;
   padding: 4px 2px;
+}
+
+.blank-space{
+  height: 30px;
 }
 
 .item-day {
@@ -62,7 +66,6 @@
 }
 
 .item-hour{
-  height: 410px;
   color: #333;
   background-color: #fff;
 }
@@ -70,4 +73,9 @@
 .button {
   color: #fff;
   background-color: #32B796;
+}
+
+.appointment-time a {
+  color: #282828;
+  text-decoration: none;
 }
