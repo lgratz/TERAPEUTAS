@@ -34,7 +34,7 @@
       <h2 class= "lisa"> <strong>Terapias oferecidas</strong> </h2>
         <% @therapist.services.each do |service| %>
           <div class="category-item">
-            <%= link_to 'categories' do %>
+            <%= link_to categories_path do %>
             <%= service.category.name  %></h2>
             <% end %>
           </div>
