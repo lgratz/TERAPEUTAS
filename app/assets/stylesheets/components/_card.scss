@@ -21,10 +21,13 @@
 }
 
 .img-responsive {
-  border-radius: 60px;
+  border-radius: 5px;
   padding: 40px;
-
+  border: 2px solid #dce2e1;
+  box-shadow: 2px 2px 4px #dce2e1;
+  margin-bottom: 40px;
 }
+
 .card {
   height: 175px;
   text-shadow: 0 1px 3px rgba(0,0,0,0.6);
@@ -33,6 +36,7 @@
   color: white;
   position: relative;
 }
+
 .card-body {
   position: absolute;
   right: 10px;
@@ -47,6 +51,7 @@
   font-size: 15px;
   text-transform: uppercase;
 }
+
 .card-description {
   // position: absolute;
   display: flex;
