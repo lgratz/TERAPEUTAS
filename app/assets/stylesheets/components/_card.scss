@@ -7,25 +7,43 @@
 
 }
 
+.centralize-cards {
+  margin-left: 174px;
+  margin-right: 182px;
+  h2 {
+    font-size: 26px;
+  }
+  p {
+    font-size: 15px;
+  }
+}
+
 .card_category {
   width: 100%;
-  height: 360px;
+  height: 280px;
   margin-top: 24px;
   margin-bottom: 14px;
   box-shadow: 1px 1px 2px grey;
   border-radius: 3px;
   overflow: hidden;
-  padding-top: 30px;
   background-color:  rgb(240, 240, 240);
-  // opacity: 0.3
+  display: flex;
+  align-items: center;
 }
 
 .img-responsive {
+  border-radius: 44px;
+  padding: 40px;
   border-radius: 5px;
   padding: 40px;
   border: 2px solid #dce2e1;
   box-shadow: 2px 2px 4px #dce2e1;
   margin-bottom: 40px;
+}
+
+.img-responsive2 {
+  border-radius: 44px;
+  padding: 40px;
 }
 
 .card {
