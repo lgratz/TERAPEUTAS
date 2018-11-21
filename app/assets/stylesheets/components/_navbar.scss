@@ -12,8 +12,8 @@
 
 
 .navbar-home {
-  transition: all 0.3s ease;
-  height: 50px;
+  transition: 0.5s background-color ease;
+  height: 70px;
   padding: 0px 30px;
   display: flex;
   align-items: center;
@@ -21,10 +21,14 @@
   padding-right: 10px;
   padding-left: 10px;
   background-color: transparent;
-  position: absolute;
+  position: fixed;
   top: 0;
   z-index: 4;
   width: 100vw;
+}
+
+.navbar-wagon-gray {
+  background-color: rgb(200, 200, 200);
 }
 
 /* Logo */
@@ -54,7 +58,7 @@
 
 /* Navbar link */
 .navbar-wagon-link {
-  color: #C4C4C4;
+  color: azure;
   font-size: 14px;
 }
 .navbar-wagon-link:hover {

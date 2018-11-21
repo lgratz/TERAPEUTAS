@@ -1,28 +1,65 @@
 <% bg_image = image_path('signup2.jpg') %>
 
-<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('<%= bg_image %>');">
+<div class="banner " style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('<%= bg_image %>');">
   <div class="banner-content">
-    <h1>A terapia que seu corpo precisa</h1>
-    <%= link_to "Encontre agora", therapists_path, class: "btn btn-success btn-lg" %>
+    <div class="margin-bottom">
+      <%= image_tag ("logo.png") %>
+    </div>
+    <h3>A terapia que seu corpo precisa</h3>
+    <%= link_to "Encontre agora", therapists_path, class: "btn btn-success btn-lg btn-radius" %>
   </div>
 </div>
 
-<h2 class="text-center">Tratamentos em destaque</h2>
-
+<div class="weal_funciona">
   <div class="container">
     <div class="row">
-      <% Category.first(3).each do |category| %>
-        <%= link_to 'categories' do %>
-          <div class="col-xs-12 col-sm-4">
-            <div class="card img-responsive" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path category.image%>);" >
-              <div class="card-category"></div>
-              <div class="card-description">
-                <h2 class="category_name"> <%= category.name  %></h2>
-              </div>
-            </div>
-          </div>
-        <% end %>
-      <% end %>
+      <div class="col-xs-12">
+        <h2 class="weal_titulo">Como funciona a Weal?</h2>
+      </div>
+      <div class="col-sm-4 col-xs-8 col-sm-offset-0 col-xs-offset-2">
+        <div class="weal_funciona-item">
+          <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+          <h5><strong>Encontre um terapeuta próximo</strong></h5>
+          <h6>Você pode buscar por localização, tipo de terapia, valor da sessão e muito mais!</h6>
+        </div>
+      </div>
+      <div class="col-sm-4 col-xs-8 col-sm-offset-0 col-xs-offset-2">
+        <div class="weal_funciona-item">
+          <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
+          <h5><strong>Agende um horário</strong></h5>
+          <h6>Verifique a disponibilizade de horário e efetue o pagamento para a confirmação.</h6>
+        </div>
+      </div>
+      <div class="col-sm-4 col-xs-8 col-sm-offset-0 col-xs-offset-2">
+        <div class="weal_funciona-item">
+          <span class="glyphicon glyphicon-leaf" aria-hidden="true"></span>
+          <h5><strong>Faça sua sessão de relaxamento</strong></h5>
+          <h6>Encontre o terapeuta no local e horário marcados e saia renovado!</h6>
+        </div>
+      </div>
+      </div>
     </div>
   </div>
+</div>
 
+<div class="weal_destaque">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <h2 class="weal_titulo_destaque">Tratamentos em destaque</h2>
+      </div>
+        <% Category.first(3).each do |category| %>
+          <%= link_to 'categories' do %>
+            <div class="col-sm-4 col-xs-8 col-sm-offset-0 col-xs-offset-2">
+              <div class="card img-responsive" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path category.image%>);" >
+                <div class="card-category"></div>
+                <div class="card-description">
+                  <h2 class="category_name"> <%= category.name  %></h2>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+    </div>
+  </div>
+</div>
