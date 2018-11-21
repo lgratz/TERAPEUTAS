@@ -34,6 +34,11 @@
 .img-responsive {
   border-radius: 44px;
   padding: 40px;
+  border-radius: 5px;
+  padding: 40px;
+  border: 2px solid #dce2e1;
+  box-shadow: 2px 2px 4px #dce2e1;
+  margin-bottom: 40px;
 }
 
 .img-responsive2 {
@@ -49,6 +54,7 @@
   color: white;
   position: relative;
 }
+
 .card-body {
   position: absolute;
   right: 10px;
@@ -63,6 +69,7 @@
   font-size: 15px;
   text-transform: uppercase;
 }
+
 .card-description {
   // position: absolute;
   display: flex;
