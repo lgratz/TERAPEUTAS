@@ -23,14 +23,19 @@
         <h5><strong> R$<%= therapist.session_price %>,00</strong></h5>
         <i class="fas fa-star" style= "color:#F4D144"></i>
       </div>
-      <div class="card-info-list">
-        <h4> <strong> <%= therapist.user.first.capitalize %> <%= therapist.user.last.capitalize %> </strong> </h4>
+      <div class="card-info-list2">
+        <h3> <strong> <%= therapist.user.first.capitalize %> <%= therapist.user.last.capitalize %> </strong> </h3>
+        <br>
+          <span class="glyphicon glyphicon-ok-circle" aria-hidden="true"></span> <u><em>Terapias disponíveis:</em></u>
+        <br>
+          <ul class="list-inline" style="display: inline-block">
           <% therapist.services.each do |service| %>
-          <h5><%= service.category.name %></h5>
-        <% end %>
+            <li>- <%= service.category.name %></li>
+          <% end %>
+          </ul>
       </div>
       <div class="card-info-list">
-        <%= link_to "Agendar", therapist_path(therapist), class: "btn btn-md btn-success" %>
+        <%= link_to " AGENDAR", therapist_path(therapist), class: "glyphicon glyphicon-calendar btn btn-md btn-success" %>
       </div>
     </div>
   <% end %>
