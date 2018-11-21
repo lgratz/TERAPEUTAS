@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
+
   devise_for :users
   root to: 'pages#home'
   resources :pages, only: [:index]
 
   resources :therapists do
      resources :appointments, only: [:new, :create]
+     resources :calendars, only: [:edit, :update]
   end
 
   resources :appointments, except: [:new, :create]

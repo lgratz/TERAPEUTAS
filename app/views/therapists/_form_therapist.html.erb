@@ -1,4 +1,4 @@
-<%= simple_form_for(@therapist) do |f| %>
+<%= simple_form_for [@therapist] do |f| %>
   <div class="form-inputs">
     <%= f.input :address, label: "Endereço", required: true %>
 
@@ -17,7 +17,6 @@
     <% end %>
       <br><br>
 
-
     <%= f.input :photos, label: "Foto do seu espaço" %>
 
     <%= f.input :photos_cache, as: :hidden %>
@@ -25,6 +24,6 @@
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit, "Cadastrar", class: "btn btn-success" %>
+    <%= f.button :submit, "Salvar", class: "btn btn-success btn-block" %>
   </div>
 <% end %>

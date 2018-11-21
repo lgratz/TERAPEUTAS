@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_19_224257) do
+ActiveRecord::Schema.define(version: 2018_11_21_165310) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +27,20 @@ ActiveRecord::Schema.define(version: 2018_11_19_224257) do
     t.string "category_selected"
     t.index ["therapist_id"], name: "index_appointments_on_therapist_id"
     t.index ["user_id"], name: "index_appointments_on_user_id"
+  end
+
+  create_table "calendars", force: :cascade do |t|
+    t.string "mon", default: "8,9,10,11,12,13,14,15,16,17,18,19,20"
+    t.string "tue", default: "8,9,10,11,12,13,14,15,16,17,18,19,20"
+    t.string "wed", default: "8,9,10,11,12,13,14,15,16,17,18,19,20"
+    t.string "thu", default: "8,9,10,11,12,13,14,15,16,17,18,19,20"
+    t.string "fri", default: "8,9,10,11,12,13,14,15,16,17,18,19,20"
+    t.string "sat", default: "8,9,10,11,12,13"
+    t.string "sun", default: ""
+    t.bigint "therapist_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["therapist_id"], name: "index_calendars_on_therapist_id"
   end
 
   create_table "categories", force: :cascade do |t|
@@ -77,6 +91,7 @@ ActiveRecord::Schema.define(version: 2018_11_19_224257) do
 
   add_foreign_key "appointments", "therapists"
   add_foreign_key "appointments", "users"
+  add_foreign_key "calendars", "therapists"
   add_foreign_key "services", "categories"
   add_foreign_key "services", "therapists"
   add_foreign_key "therapists", "users"

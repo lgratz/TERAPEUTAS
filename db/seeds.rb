@@ -1,5 +1,6 @@
 require 'faker'
 
+Calendar.delete_all if Rails.env.development?
 Appointment.delete_all if Rails.env.development?
 Service.delete_all if Rails.env.development?
 Therapist.delete_all if Rails.env.development?
