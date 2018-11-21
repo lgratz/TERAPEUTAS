@@ -28,15 +28,17 @@
 
     <div class="container-calendar">
       <% (0..4).each do |col| %>
-        <div class="item item-hour item-link">
+        <% week = (date_ini + col).strftime("%a").downcase %>
+        <% avaiable = @therapist.calendar[week].split(",") %>
 
-          <% (8..20).each do |hour| %>
+        <div class="item item-hour item-link">
+          <% avaiable.each do |hour| %>
 
 
               <% if @therapist.appointments.all? { |a| a.session_date.to_datetime != "#{date_ini + col} #{hour}:00:00".to_datetime } %>
-                <div class="item item-link item-hour appointment-time">
+                <div class="item item-link item-hour">
 
-                  <%= link_to "#{hour.to_s}:00", '#', data: { datetime: "#{date_ini + col} #{hour}:00:00"} %>
+                  <%= link_to "#{hour.to_s}:00", '#', data: { datetime: "#{date_ini + col} #{hour}:00:00"}, class: "appointment-time" %>
 
                 </div>
               <% end %>

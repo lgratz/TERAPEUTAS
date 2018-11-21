@@ -35,7 +35,7 @@
 
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
             <li>
-              <%= link_to "Olá, #{current_user.first.capitalize}", remote: false %>
+              <%= link_to "Olá, #{current_user.first.capitalize}", "#" %>
             </li>
             <li>
               <%= link_to edit_user_registration_path do %>
@@ -56,14 +56,17 @@
               </li>
               <li>
                 <%= link_to raw("<i class='far fa-calendar-alt'></i> Agendei para mim"), appointments_path, class: "navbar-wagon-item navbar-wagon-link text-center" %>
+              </li>
+              <li>
+                <%= link_to raw("<i class='fas fa-cog'></i> Configurar agenda"), edit_therapist_calendar_path(current_user.therapist, current_user.therapist.calendar), class: "navbar-wagon-item navbar-wagon-link text-center" %>
+              </li>
+            <% end %>
+
+              <li>
+                <%= link_to destroy_user_session_path, method: :delete do %>
+                  <i class="fas fa-sign-out-alt"></i>  <%= t(".sign_out", default: "Sair") %>
                 <% end %>
               </li>
-
-            <li>
-              <%= link_to destroy_user_session_path, method: :delete do %>
-                <i class="fas fa-sign-out-alt"></i>  <%= t(".sign_out", default: "Sair") %>
-              <% end %>
-            </li>
           </ul>
         </div>
       </div>
