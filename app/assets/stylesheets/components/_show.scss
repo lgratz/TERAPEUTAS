@@ -6,6 +6,7 @@
     margin-left: auto;
     display: flex;
     justify-content: center;
+    background-color: #32B796;
 }
 
 .therapist-profile-container {
@@ -31,14 +32,52 @@
     color: red;
     display: flex;
     align-items: center;
-    padding: 10px;
+    margin-top: 20px;
 
 }
 
-.lisa-row {
-  margin-top: 20px;
-  margin-bottom: 20px;
+.lisa {
 
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    margin-bottom: 5px;
+}
+
+.lisa-row {
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+}
+
+ .lisa-div-stars i {
+    font-size: 30px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+ }
+
+.category-item {
+    font-size: 20px;
+    display: flex;
+    background: #32B796;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    margin-bottom: 10px;
+    border-radius: 25px;
+    margin-right: 5px;
+
+}
+
+.category-item a{
+  color: white;
+  text-decoration: none;
+  text-align: center;
+}
+
+.lisa-avatar-radius img {
+  border-radius: 60px
 }
 
 .lisa-container {
@@ -53,6 +92,7 @@
 
 .lisa-row h1 {
   font-size: 50px;
+  color: #F2F2F2;
 
 }
 
