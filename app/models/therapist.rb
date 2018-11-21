@@ -9,5 +9,7 @@ class Therapist < ApplicationRecord
 
   mount_uploader :photos, PhotoUploader
 
+  validates :user_id, uniqueness: true
+
   # monetize :price_cents
 end

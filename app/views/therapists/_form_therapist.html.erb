@@ -6,9 +6,17 @@
 
     <%= f.input :self_description, label: "Breve descrição sobre você", required: true %>
 
-    <%= f.association :categories, label: "Terapias oferecidas", input_html: { class: "registration-associations" }, required: true, as: :check_boxes %>
-
     <%= f.input :session_price, label: "Preço por sessão", required: true %>
+
+    <%= f.label "Terapias oferecidas" %>  <br>
+    <%= f.collection_check_boxes(:category_ids, Category.all.sort_by{|cat| cat.name.length}, :id, :name, required: true) do |b| %>
+
+      <%= b.label style:"margin-right:10px" do %>
+        <%= b.check_box + " " + b.text%>
+      <% end %>
+    <% end %>
+      <br><br>
+
 
     <%= f.input :photos, label: "Foto do seu espaço" %>
 

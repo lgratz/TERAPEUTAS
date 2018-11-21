@@ -1,0 +1,5 @@
+<%= simple_form_for :agenda, html: { class: "form-inline" }, method: "get" do |f| %>
+  <%= f.input :date, as: :string, label: false, required: false,
+  placeholder: "Data desejada", input_html: {class: "form-control datepicker"} %>
+  <%= f.button :submit, "Ver", class: "btn btn-default" %>
+<% end %>
