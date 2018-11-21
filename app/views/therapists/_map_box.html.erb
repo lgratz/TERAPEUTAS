@@ -1,7 +1,8 @@
 <div class="card-marker">
-  <%= cl_image_tag therapist.user.avatar, height: 30, width: 30, radius: :max, crop: :thumb, gravity: :face %>
   <div class="text-center">
-    <h7>Preço sessão:</h7>
+  <%= cl_image_tag therapist.user.avatar, height: 35, width: 35, radius: :max, crop: :thumb, gravity: :face %>
+    <h6> <strong> <%= therapist.user.first.capitalize %> <%= therapist.user.last.capitalize %> </strong> </h6>
+    <h7>Sessão (50min):</h7>
     <h5><strong> R$<%= therapist.session_price%>,00</strong></h5>
   </div>
 </div>
