@@ -1,3 +1,6 @@
+<div class="wrapper-show">
+
+
 <div class="lisa-container-name">
   <div class="lisa-row">
    <div class="col-12">
@@ -6,11 +9,6 @@
   </div>
 </div>
 <div class="container therapist-profile-container">
-  <div class="item-photos text-center">
-    <% if @therapist.photos %>
-    <%= cl_image_tag @therapist.photos, width: 1000  %>
-    <% end %>
-  </div>
   <div class="lisa-row">
     <div class="col-xs-12 col-md-3 offset-1">
       <div class="lisa-item-card">
@@ -48,11 +46,20 @@
         </div>
       </div>
    </div>
+
  </div>
 </div>
 
+<div class="lisa-container-photos">
+  <div class="item-photos text-center">
+    <% if @therapist.photos %>
+    <%= cl_image_tag @therapist.photos, width: 1000  %>
+    <% end %>
+  </div>
+</div>
 
 
+</div>
 
 
 

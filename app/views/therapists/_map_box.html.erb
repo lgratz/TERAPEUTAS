@@ -4,8 +4,11 @@
 
       <%= cl_image_tag therapist.user.avatar, height: 35, width: 35, radius: :max, crop: :thumb, gravity: :face %>
         <h6> <strong> <%= therapist.user.first.capitalize %> <%= therapist.user.last.capitalize %> </strong> </h6>
-        <h7>Sessão (50min):</h7>
-        <h5><strong> R$<%= therapist.session_price%>,00</strong></h5>
+        <% Appointment.where(therapist: therapist).average(:rating).to_i.times do %>
+        <i class="fas fa-star" style= "color:#F4D144"></i>
+         <% end %>
+        <!-- <h7>Sessão (50min):</h7> -->
+        <h5> R$<%= therapist.session_price%>,00</h5>
 
     </div>
   </div>
