@@ -1,4 +1,6 @@
 class AppointmentsController < ApplicationController
+  before_action :set_appointment, only: [:update, :destroy]
+
   def new
   end
 
@@ -10,7 +12,7 @@ class AppointmentsController < ApplicationController
     @appointment.user = current_user
 
     unless params[:session_date].nil?
-      @appointment.status = @appointment.session_date.to_date == Date.today ? "Aguardando rating" : "Agendado"
+      @appointment.status = @appointment.session_date.to_date == Date.today ? "Qual o rating?" : "Agendado"
     end
 
     if @appointment.save
@@ -24,6 +26,9 @@ class AppointmentsController < ApplicationController
   end
 
   def update
+    @appointment.status = "Finalizado"
+    @appointment.update(appointment_params)
+    redirect_to appointments_path
   end
 
   def show
@@ -34,11 +39,17 @@ class AppointmentsController < ApplicationController
   end
 
   def destroy
+    @appointment.destroy
+    redirect_to appointments_path
   end
 
   private
 
   def appointment_params
-    params.require(:appointment).permit(:session_date, :category_selected)
+    params.require(:appointment).permit(:session_date, :category_selected, :rating)
+  end
+
+  def set_appointment
+    @appointment = Appointment.find(params[:id])
   end
 end
