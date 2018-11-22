@@ -202,7 +202,7 @@ end
 
 Therapist.all.each do |therapist|
 
-  [-1, 0 , 1].each do |day|
+  [-1, 0 , 3].each do |day|
     (8..20).to_a.sample(8).each do |hour|
       o = Appointment.new
       o.session_date = "#{Date.today + day + 1} #{hour}:00:00".to_datetime
@@ -214,7 +214,7 @@ Therapist.all.each do |therapist|
         o.status = "Finalizado"
         o.rating = rand(3..5)
       elsif day == 0
-        o.status = "Aguardando rating"
+        o.status = "Qual o rating?"
       else
         o.status = "Agendado"
       end
