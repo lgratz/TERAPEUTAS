@@ -1,6 +1,5 @@
 class AppointmentsController < ApplicationController
   def new
-    @appointment = Appointment.new
   end
 
   def create
@@ -10,7 +9,6 @@ class AppointmentsController < ApplicationController
     @appointment.price = @therapist.session_price
     @appointment.user = current_user
 
-    #raise("nil params") if params[:session_date].nil? || params[:category_selected].nil?
     unless params[:session_date].nil?
       @appointment.status = @appointment.session_date.to_date == Date.today ? "Aguardando rating" : "Agendado"
     end
@@ -32,7 +30,7 @@ class AppointmentsController < ApplicationController
   end
 
   def index
-    @appointments = current_user.appointments.all.sort_by{|app| app.session_date}.reverse
+    @appointments = current_user.appointments.all.sort_by{|app| app.session_date}
   end
 
   def destroy
