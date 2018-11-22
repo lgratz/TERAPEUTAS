@@ -1,12 +1,13 @@
 .main-container {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
 .container-list{
   // display: block;
   // width: 29%;
-  flex: 0 0 20%;
+  flex: 0 0 35%;
+  padding-left: 35px;
 }
 
 .therapist-list {
@@ -48,6 +49,13 @@
   margin: 20px;
   width: 65%;
   font-size: 14px;
+}
+
+.card-info-list3 {
+  justify-content: center;
+  align-items: center;
+  margin: 15px;
+  width: 50%;
 }
 
 .weal_funciona {
