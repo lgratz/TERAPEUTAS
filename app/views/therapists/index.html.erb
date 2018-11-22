@@ -3,7 +3,7 @@
   <div class="search-header">
     <div class="container">
       <div class="row">
-        <div class="col-xs-12">
+        <div class="col-xs-12" style="text-align: center;" >
           <div>
             <%= form_tag therapists_path, method: :get, class: "form-inline" do %>
                <p><%= text_field_tag :query,
@@ -22,21 +22,25 @@
 
   <div class="main-container">
       <div class="container-list">
-        <div class="row">
-          <div class="col-xs-12">
+        <div class="therapists">
+          <!-- <div class="col-xs-12"> -->
             <% @therapists.each do |therapist| %>
               <div class="therapist-list">
                 <div class="card-info-list">
-                  <%= cl_image_tag therapist.user.avatar, height: 80, width: 80, radius: :max, crop: :thumb, gravity: :face %>
-                  <h5>Sessão:</h5>
-                  <h5><strong> R$<%= therapist.session_price %>,00</strong></h5>
+                  <div class="therapist-pic">
+                    <%= cl_image_tag therapist.user.avatar, radius: :max, height: 80, width: 80, crop: :thumb, gravity: :face %>
+                  </div>
+
+                  <p class="price-info">R$<%= therapist.session_price %> / hora</p>
+
                   <i class="fas fa-star" style= "color:#F4D144"></i>
+
                 </div>
                 <div class="card-info-list2">
-                  <h3> <strong> <%= therapist.user.first.capitalize %> <%= therapist.user.last.capitalize %> </strong> </h3>
-                  <br>
-                    <span class="glyphicon glyphicon-ok-circle" aria-hidden="true"></span> <u><em>Terapias disponíveis:</em></u>
-                  <br>
+                  <h5> <strong> <%= therapist.user.first.capitalize %> <%= therapist.user.last.capitalize %> </strong> </h5>
+                  <h6 class="card-title">
+                    Serviços
+                  </h6>
                     <ul class="list-inline" style="display: inline-block">
                     <% therapist.services.each do |service| %>
                       <li>- <%= service.category.name %></li>
@@ -44,11 +48,11 @@
                     </ul>
                 </div>
                 <div class="card-info-list">
-                  <%= link_to " AGENDAR", therapist_path(therapist), class: "glyphicon glyphicon-calendar btn btn-md btn-success" %>
+                  <%= link_to "Agendar", therapist_path(therapist), class: "btn btn-xs btn-success" %>
                 </div>
               </div>
             <% end %>
-          </div>
+          <!-- </div> -->
         </div>
       </div>
     <div id="map" data-markers="<%= @markers.to_json %>"></div>
