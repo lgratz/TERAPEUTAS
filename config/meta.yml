@@ -1,0 +1,6 @@
+meta_product_name: "Weal"
+meta_title: "Weal - Terapias Alternativas"
+meta_description: "De massagem até tratamento energético. Encontre a terapia
+que o seu corpo precisa"
+meta_image: "logometa.png" # should exist in `app/assets/images/`
+twitter_account: "@product_twitter_account"   # required for Twitter Cards
