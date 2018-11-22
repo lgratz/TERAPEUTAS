@@ -34,7 +34,7 @@
                 <td>R$ <%= appointment.therapist.session_price %>,00</td>
 
                 <!-- <td><%= appointment.rating %></td> -->
-                <td>
+                <td class="rating-wid">
                 <% if appointment.rating %>
                     <% appointment.rating.times do %>
                      <i class="fas fa-star" style= "color:#F4D144"></i>
@@ -42,13 +42,13 @@
 
                 <% else %>
 
-                <% if appointment.status = "Sem rating" %>
-                      <%= simple_form_for appointment, html: { class: "form-inline" }, method: "patch" do |f| %>
-                        <%= f.input :rating, placeholder: "Nota de 1 a 5", label: false %>
-                        <%= f.button :submit, "" do %>
-                          <i class='fas fa-star'></i>
-                           %>
-                           <% end %>
+                  <% if appointment.status = "Sem rating" %>
+                      <%= simple_form_for appointment, html: { class: "form-inline text-justify no-padding" }, method: "patch" do |f| %>
+                        <%= f.input :rating, input_html: { class: "input-sm" }, collection: [1,2,3,4,5], placeholder: "Nota de 1 a 5", label: false, allow_blank: false %>
+                        <%= f.button :submit, "IR", {class: "btn btn-sm btn-default"} do |b| %>
+                          <%=  "<i class='fas fa-star' style= 'color:#F4D144'></i>".html_safe %>
+
+                        <% end %>
                       <% end %>
                   <% end %>
 
