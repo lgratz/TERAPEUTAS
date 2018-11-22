@@ -7,7 +7,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: #F2F2F2;
+  background-color: #C1C1C1;
 }
 
 
@@ -25,6 +25,7 @@
   top: 0;
   z-index: 4;
   width: 100vw;
+  color: #276955;
 }
 
 .navbar-wagon-gray {
@@ -58,7 +59,7 @@
 
 /* Navbar link */
 .navbar-wagon-link {
-  color: #C4C4C4;
+  color: azure;
   font-size: 14px;
 }
 .navbar-wagon-link:hover {
