@@ -47,9 +47,9 @@
               </td>
               <td><%= appointment.status %></td>
 
-              <td class="btn btn-xs">
+              <td class="btn btn-xs destroy-app">
                 <% if appointment.status == "Agendado" %>
-                  <%= link_to therapist_appointment_path(appointment), data: { confirm: "Tem certeza que quer cancelar esse agendamento?" }, method: :delete do |l| %>
+                  <%= link_to therapist_appointment_path(appointment), data: { confirm: "Tem certeza que quer cancelar esse agendamento?" }, class: "destroy-app", method: :delete do |l| %>
                     <i class="fas fa-trash-alt"></i>
 
                   <% end %>

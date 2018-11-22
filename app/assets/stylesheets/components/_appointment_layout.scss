@@ -5,3 +5,20 @@
 .terapia {
   max-width: 100px;
 }
+
+.destroy-app {
+  color: $verde-escuro;
+  :hover {
+    text-decoration: none;
+    font-weight: bolder;
+    color: black;
+  }
+}
+
+.rating-wid {
+  max-width: 100px;
+}
+
+.no-padding {
+  padding: 10px 0 !important;
+}

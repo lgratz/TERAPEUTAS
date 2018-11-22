@@ -3,5 +3,5 @@ class Appointment < ApplicationRecord
   belongs_to :therapist
 
   validates :category_selected, :session_date, presence: true
-  validates :rating, inclusion: { in: [1, 2, 3, 4, 5] }
+  validates :rating, inclusion: { in: [1, 2, 3, 4, 5] }, allow_nil: true
 end

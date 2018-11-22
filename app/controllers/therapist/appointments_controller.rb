@@ -2,7 +2,7 @@ class Therapist::AppointmentsController < ApplicationController
   before_action :set_appointment, only: [:update, :destroy]
 
   def index
-    @appointments = Appointment.where(therapist: current_user.therapist).all.sort_by { `&:date` }
+    @appointments = Appointment.where(therapist: current_user.therapist).all.sort_by { |a| a.session_date }
   end
 
   def edit

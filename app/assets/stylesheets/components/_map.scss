@@ -22,4 +22,12 @@
 .card-marker {
   // display: flex;
   justify-content: center;
+  color: black;
+  opacity: 0.9;
+  text-decoration: none;
+  :hover {
+    text-decoration: none;
+    color: $verde-escuro;
+  }
 }
+
