@@ -9,7 +9,7 @@ Bundler.require(*Rails.groups)
 module TERAPEUTAS
   class Application < Rails::Application
 
-    config.middleware.insert_before  ActionDispatch::Cookies, Rack::SslEnforcer
+    config.middleware.insert_before  ActionDispatch::Cookies, Rack::SslEnforcer if Rails.env.production?
     config.generators do |generate|
           generate.assets false
           generate.helper false
