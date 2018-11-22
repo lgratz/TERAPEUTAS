@@ -5,12 +5,12 @@
    </div>
   </div>
 </div>
-  <!-- <div class="item-photos">
-    <% if @therapist.photos %>
-    <%=cl_image_tag @therapist.photos   %>
-    <% end %>
-  </div> -->
 <div class="container therapist-profile-container">
+  <div class="item-photos text-center">
+    <% if @therapist.photos %>
+    <%= cl_image_tag @therapist.photos, width: 1000  %>
+    <% end %>
+  </div>
   <div class="lisa-row">
     <div class="col-xs-12 col-md-3 offset-1">
       <div class="lisa-item-card">
