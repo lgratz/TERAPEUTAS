@@ -16,8 +16,7 @@
             <% @avg_rating.times do %>
             <i class="fas fa-star" style= "color:#F4D144"></i>
              <% end %>
-              <h2 class= "lisa">Sessão</h2>
-              <h3 class= "lisa"> R$: <%= @therapist.session_price %>,00</h3>
+              <p class= "lisa-price-description">Preço do tratamento R$: <%= @therapist.session_price %></p>
           </div>
       </div>
     </div>
@@ -26,12 +25,12 @@
          <h2 class= "lisa"> <strong>Sobre Mim</strong> </h2>
          <p class="lisa-self_description"> <%= @therapist.self_description %> </p>
       </div>
-    <div class="text-justify">
+    <div class="item-heading">
       <h2 class= "lisa"> <strong>Terapias oferecidas</strong> </h2>
         <% @therapist.services.each do |service| %>
-          <div class="category-item text-justify">
+          <div class="category-item">
             <%= link_to categories_path do %>
-            <p> <%= service.category.name  %></p>
+            <%= service.category.name  %></h2>
             <% end %>
           </div>
         <% end %>
@@ -44,24 +43,17 @@
         </div>
       </div>
    </div>
+
  </div>
 </div>
 
-
-      <div class="lisa-container-photo">
-          <% unless @therapist.photos %>
-            <h2 class="lisa text-center"><strong>Venha conhecer meu espaço</strong></h2>
-          <% end %>
-
-        <div class="item-photos text-center">
-
-          <br>
-            <%= cl_image_tag @therapist.photos, width: 1000  %>
-
-        </div>
-      </div>
-
-
+<div class="lisa-container-photos">
+  <div class="item-photos text-center">
+    <% if @therapist.photos %>
+    <%= cl_image_tag @therapist.photos, width: 1000  %>
+    <% end %>
+  </div>
+</div>
 
 
 
