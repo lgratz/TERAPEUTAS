@@ -213,8 +213,6 @@ Therapist.all.each do |therapist|
       if day == -1
         o.status = "Finalizado"
         o.rating = rand(3..5)
-      elsif day == 0
-        o.status = "Qual o rating?"
       else
         o.status = "Agendado"
       end

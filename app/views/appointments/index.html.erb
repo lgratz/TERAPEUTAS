@@ -21,7 +21,6 @@
               <th>Rating</th>
               <th>Status</th>
               <th></th>
-              <th></th>
             </tr>
 
             <% @appointments.each do |appointment| %>
@@ -42,6 +41,8 @@
                     <% end %>
 
                 <% else %>
+
+                <% if appointment.status = "Sem rating" %>
                       <%= simple_form_for appointment, html: { class: "form-inline" }, method: "patch" do |f| %>
                         <%= f.input :rating, placeholder: "Nota de 1 a 5", label: false %>
                         <%= f.button :submit, "" do %>
@@ -49,6 +50,7 @@
                            %>
                            <% end %>
                       <% end %>
+                  <% end %>
 
 
                 <% end %>
