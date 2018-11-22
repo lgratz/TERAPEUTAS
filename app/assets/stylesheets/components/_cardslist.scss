@@ -3,30 +3,18 @@
   justify-content: space-between;
 }
 
-.therapist-card-list {
-  display: flex;
-  justify-content: space-around;
-  width: 620px;
-  height: 220px;
-  padding: 10px;
-  margin: 10px;
-  border-top: 1px solid #234e7d;
+.container-list{
+  display: block;
 }
 
 .therapist-list {
   display: flex;
-  justify-content: space-between;
   align-items: center;
   margin: 12px;
   box-shadow: 6px 6px 8px grey;
   border: 1px solid black;
   width: 650px;
-  background-color: #f4f9f8;
-}
-
-.card-therapist {
-  display: flex;
-  align-items: center;
+  background-color: #dce2e1;
 }
 
 .card-info-list {

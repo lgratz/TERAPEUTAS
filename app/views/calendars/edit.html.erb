@@ -11,7 +11,7 @@
 
         <%= simple_form_for [@therapist, @calendar] do |f| %>
           <div class="form-inputs">
-            <%= f.collection_check_boxes :mon, (6..23), :to_s, :to_s, label: "Segunda"%>
+            <%= f.input :mon, collection: (6..23).map{|i| "#{i}:00" }, as: :check_boxes, label: "Segunda",include_hidden: false, checked: @calendar.mon.split(',').map{|i| "#{i}:00" } %>
             <%= f.input :tue, label: "Terça" %>
             <%= f.input :wed, label: "Quarta" %>
             <%= f.input :thu, label: "Quinta" %>
