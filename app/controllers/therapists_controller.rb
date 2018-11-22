@@ -18,6 +18,11 @@ class TherapistsController < ApplicationController
         infoWindow: { content: render_to_string(partial: "/therapists/map_box", locals: { therapist: therapist }) }
       }
     end
+
+    @avg_rating = []
+    @therapists.each do |therapist|
+      @avg_rating << Appointment.where(therapist: therapist).average(:rating).to_i
+    end
   end
 
   def show
