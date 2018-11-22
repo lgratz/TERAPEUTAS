@@ -39,7 +39,7 @@
                 <% else %>
 
                   <% if appointment.status == "Agendado" %>
-                      <%= link_to "Solicitar", therapist_appointment_path(appointment), method: :patch, class: "btn btn-default" %>
+                      <%= link_to "Solicitar", therapist_appointment_path(appointment), method: :patch, class: "btn btn-default btn-sm" %>
 
                   <% end %>
 
