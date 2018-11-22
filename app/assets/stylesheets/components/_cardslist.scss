@@ -4,30 +4,58 @@
 }
 
 .container-list{
-  display: block;
+  // display: block;
+  // width: 29%;
+  flex: 0 0 35%;
+  padding-left: 35px;
 }
 
 .therapist-list {
   display: flex;
   align-items: center;
-  margin: 12px;
-  box-shadow: 6px 6px 8px grey;
-  border: 1px solid black;
-  width: 650px;
-  background-color: #dce2e1;
+  // margin: 12px;
+  // box-shadow: 6px 6px 8px grey;
+  border-bottom: 1px solid #2D8781;
+  // width: 650px;
+  // background-color: #dce2e1;
 }
 
 .card-info-list {
   justify-content: center;
   align-items: center;
   margin: 15px;
+  width: 50%;
+}
+
+.therapist-pic > img{
+  border-radius: 50%;
+}
+
+.card-title {
+  font-weight: 550;
+  font-size: 0.9em;
+}
+
+.price-info {
+  font-size: 69%;
+  line-height: 2rem;
+  padding-top: 10px;
+  font-weight: 550;
 }
 
 .card-info-list2 {
   justify-content: center;
   align-items: center;
   margin: 20px;
-  width: 380px;
+  width: 65%;
+  font-size: 14px;
+}
+
+.card-info-list3 {
+  justify-content: center;
+  align-items: center;
+  margin: 15px;
+  width: 50%;
 }
 
 .weal_funciona {
@@ -62,3 +90,13 @@
   margin-bottom: 40px;
   font-size: 100px;
 }
+
+@media (max-width: 1000px) {
+
+  .main-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+}
+
