@@ -24,16 +24,18 @@
       <div class="container-list">
         <div class="therapists">
           <!-- <div class="col-xs-12"> -->
-            <% @therapists.each do |therapist| %>
+            <% @therapists.each_with_index do |therapist, ind| %>
               <div class="therapist-list">
                 <div class="card-info-list">
                   <div class="therapist-pic">
                     <%= cl_image_tag therapist.user.avatar, radius: :max, height: 80, width: 80, crop: :thumb, gravity: :face %>
                   </div>
 
-                  <p class="price-info">R$<%= therapist.session_price %> / hora</p>
+                  <p class="price-info">Valor  <br>R$<%= therapist.session_price %>,00</p>
 
-                  <i class="fas fa-star" style= "color:#F4D144"></i>
+                  <% @avg_rating[ind].times do %>
+                       <i class="fas fa-star" style= "color:#F4D144"></i>
+                      <% end %>
 
                 </div>
                 <div class="card-info-list2">
