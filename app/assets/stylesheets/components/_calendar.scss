@@ -11,9 +11,6 @@
   margin: 0 0 5px 15px;
 }
 
-.hour{
-  background-color: #E2E2E2;
-}
 
 .form-inline{
   padding: 10px 30px;
@@ -56,17 +53,18 @@
 .item-day {
   color: #fff;
   background-color: #32B796;
-  flex: 0 0 18%;
-
 }
 
 .item-week {
-  color: black;
-  flex: 0 0 18%;
+  color: #282828;
 }
 
 .item-hour{
-  color: #333;
+  flex: 1 0 18%;
+  max-width: 75px;
+  margin: 0 3px;
+  text-align: center;
+  padding: 4px 2px;
   background-color: #fff;
 }
 
@@ -75,7 +73,20 @@
   background-color: #32B796;
 }
 
-.appointment-time a {
+.item-hour a {
   color: #282828;
   text-decoration: none;
+}
+
+.hour{
+  background-color: #E2E2E2;
+  font-weight: bold;
+}
+
+.inside {
+  min-height: 400px;
+}
+
+.item-disabled {
+  color: #E2E2E2
 }

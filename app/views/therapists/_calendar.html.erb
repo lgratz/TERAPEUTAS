@@ -31,16 +31,21 @@
         <% week = (date_ini + col).strftime("%a").downcase %>
         <% avaiable = @therapist.calendar[week].split(",") %>
 
-        <div class="item item-hour item-link">
+        <div class="item-hour inside">
           <% avaiable.each do |hour| %>
 
 
               <% if @therapist.appointments.all? { |a| a.session_date.to_datetime != "#{date_ini + col} #{hour}:00:00".to_datetime } %>
-                <div class="item item-link item-hour">
 
-                  <%= link_to "#{hour.to_s}:00", '#', data: { datetime: "#{date_ini + col} #{hour}:00:00"}, class: "appointment-time" %>
-
+                <div class="item-hour">
+                  <%= link_to "#{hour.to_s}:00", '#', data: { datetime: "#{date_ini + col} #{hour.to_s}:00:00"}, class: "appointment-time" %>
                 </div>
+
+              <% else %>
+                <div class="item-disabled">
+                  <%= "#{hour.to_s}:00" %>
+                </div>
+
               <% end %>
           <% end %>
 

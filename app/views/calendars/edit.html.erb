@@ -1,1 +1,33 @@
-<%= render 'calendar_settings' %>
+<% bg_image = image_path('calendar_edit.jpg') %>
+
+<div class="banner-registration" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('<%= bg_image %>');">
+
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-md-8 col-md-offset-4">
+
+        <br>
+        <h2>Horários de atendimento</h2>
+
+        <%= simple_form_for [@therapist, @calendar] do |f| %>
+          <div class="form-inputs">
+            <%= f.collection_check_boxes :mon, (6..23), :to_s, :to_s, label: "Segunda"%>
+            <%= f.input :tue, label: "Terça" %>
+            <%= f.input :wed, label: "Quarta" %>
+            <%= f.input :thu, label: "Quinta" %>
+            <%= f.input :fri, label: "Sexta" %>
+            <%= f.input :sat, label: "Sábado" %>
+            <%= f.input :sun, label: "Domingo" %>
+          </div>
+
+          <div class="form-actions">
+            <%= f.button :submit, "Alterar disponibilidade", class: "btn btn-success btn-block" %>
+          </div>
+        <% end %>
+
+        <br><br>
+      </div>
+    </div>
+  </div>
+
+</div>

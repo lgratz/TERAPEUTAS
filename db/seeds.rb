@@ -74,13 +74,13 @@
 
 
 
-# pat = User.new(
-#   { first: "Patricia", last: "Machado", email: "patricia@gmail.com",
-#     password: "patricia",
-#     remote_avatar_url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ95FmmrmU5lfmHnODr7V_hfhBSJoo6xYVdL6DaBt2LDjPo798O"
-#    }
-# )
-# pat.save
+pat = User.new(
+  { first: "Patricia", last: "Machado", email: "patricia@gmail.com",
+    password: "patricia",
+    remote_avatar_url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ95FmmrmU5lfmHnODr7V_hfhBSJoo6xYVdL6DaBt2LDjPo798O"
+   }
+)
+pat.save
 
 
 # # a = Therapist.new
@@ -176,35 +176,35 @@
 # end
 
 
-Therapist.all.each do |therapist|
-  Category.all.sample(rand(1..6)).each do |category|
-    service = Service.new(therapist: therapist, category: category)
-    service.save
-  end
-end
+# Therapist.all.each do |therapist|
+#   Category.all.sample(rand(1..6)).each do |category|
+#     service = Service.new(therapist: therapist, category: category)
+#     service.save
+#   end
+# end
 
-Therapist.all.each do |therapist|
+# Therapist.all.each do |therapist|
 
-  [-1, 0 , 1].each do |day|
-    (8..20).to_a.sample(8).each do |hour|
-      o = Appointment.new
-      o.session_date = "#{Date.today + day} #{hour}:00:00".to_datetime
-      o.user_id = User.all[rand(0..45)].id
-      o.therapist_id = therapist.id
-      o.category_selected = therapist.services.sample(1).first.category.name
-      o.price = therapist.session_price
-      if day == -1
-        o.status = "Finalizado"
-        o.rating = rand(3..5)
-      elsif day == 0
-        o.status = "Aguardando rating"
-      else
-        o.status = "Agendado"
-      end
-      o.save
-    end
-  end
+#   [-1, 0 , 1].each do |day|
+#     (8..20).to_a.sample(8).each do |hour|
+#       o = Appointment.new
+#       o.session_date = "#{Date.today + day} #{hour}:00:00".to_datetime
+#       o.user_id = User.all[rand(0..45)].id
+#       o.therapist_id = therapist.id
+#       o.category_selected = therapist.services.sample(1).first.category.name
+#       o.price = therapist.session_price
+#       if day == -1
+#         o.status = "Finalizado"
+#         o.rating = rand(3..5)
+#       elsif day == 0
+#         o.status = "Aguardando rating"
+#       else
+#         o.status = "Agendado"
+#       end
+#       o.save
+#     end
+#   end
 
-end
+# end
 
-puts "Seeds created yay!"
+# puts "Seeds created yay!"
