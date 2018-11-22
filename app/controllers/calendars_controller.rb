@@ -17,6 +17,7 @@ class CalendarsController < ApplicationController
   private
 
   def calendar_params
+    params[:calendar][:mon] = params[:calendar][:mon].join(',')
     params.require(:calendar).permit(:mon, :tue, :wed, :thu, :fri, :sat, :sun, :therapist_id)
   end
 end
