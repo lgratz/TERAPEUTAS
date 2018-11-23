@@ -4,25 +4,45 @@
 
   <div class="container">
     <div class="row">
-      <div class="col-xs-12 col-md-8 col-md-offset-4">
+      <div class="col-xs-12">
 
         <br>
         <h2>Horários de atendimento</h2>
 
-        <%= simple_form_for [@therapist, @calendar] do |f| %>
-          <div class="form-inputs">
-            <%= f.input :mon, collection: (6..23).map{|i| "#{i}:00" }, as: :check_boxes,include_hidden: false, checked: @calendar.mon.split(',').map{|i| "#{i}:00" } %>
-            <%= f.input :tue, label: "Terça" %>
-            <%= f.input :wed, label: "Quarta" %>
-            <%= f.input :thu, label: "Quinta" %>
-            <%= f.input :fri, label: "Sexta" %>
-            <%= f.input :sat, label: "Sábado" %>
-            <%= f.input :sun, label: "Domingo" %>
+        <%= simple_form_for [@therapist, @calendar], input_html: { class: "btn btn-default"} do |f| %>
+<div class="container-settings">
+
+          <div class="container-settings-item">
+            <%= f.input :mon, label: "Seg", collection: (6..23).map{|i| "#{i}:00" }, as: :check_boxes, include_hidden: false, checked: @calendar.mon.split(',').map{|i| "#{i}:00" } %>
           </div>
 
-          <div class="form-actions">
-            <%= f.button :submit, "Alterar disponibilidade", class: "btn btn-success btn-block" %>
+          <div class="container-settings-item">
+            <%= f.input :tue, label: "Ter", collection: (6..23).map{|i| "#{i}:00" }, as: :check_boxes, include_hidden: false, checked: @calendar.tue.split(',').map{|i| "#{i}:00" } %>
           </div>
+
+          <div class="container-settings-item">
+            <%= f.input :wed, label: "Qua", collection: (6..23).map{|i| "#{i}:00" }, as: :check_boxes, include_hidden: false, checked: @calendar.wed.split(',').map{|i| "#{i}:00" } %>
+          </div>
+
+          <div class="container-settings-item">
+            <%= f.input :thu, label: "Qui", collection: (6..23).map{|i| "#{i}:00" }, as: :check_boxes, include_hidden: false, checked: @calendar.thu.split(',').map{|i| "#{i}:00" } %>
+          </div>
+
+          <div class="container-settings-item">
+            <%= f.input :fri, label: "Sex", collection: (6..23).map{|i| "#{i}:00" }, as: :check_boxes, include_hidden: false, checked: @calendar.fri.split(',').map{|i| "#{i}:00" } %>
+          </div>
+
+          <div class="container-settings-item">
+            <%= f.input :sat, label: "Sab", collection: (6..23).map{|i| "#{i}:00" }, as: :check_boxes, include_hidden: false, checked: @calendar.sat.split(',').map{|i| "#{i}:00" } %>
+          </div>
+
+          <div class="container-settings-item">
+            <%= f.input :sun, label: "Dom", collection: (6..23).map{|i| "#{i}:00" }, as: :check_boxes, include_hidden: false, checked: @calendar.sun.split(',').map{|i| "#{i}:00" } %>
+          </div>
+
+
+</div>
+            <%= f.button :submit, "Alterar disponibilidade", class: "btn btn-success btn-block" %>
         <% end %>
 
         <br><br>
