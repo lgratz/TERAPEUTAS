@@ -41,6 +41,30 @@
   margin-bottom: 40px;
 }
 
+.img-responsive-depoimento {
+  border-radius: 44px;
+  padding: 40px;
+  border-radius: 5px;
+  padding: 40px;
+  border: 2px solid #dce2e1;
+  box-shadow: 1px 1px 3px #dce2e1;
+  margin-bottom: 40px;
+  display: flex;
+}
+
+.card2 {
+  height: 175px;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+  background-size: cover !important;
+  background-position: center;
+  color: white;
+  // position: relative;
+  display: flex;
+  //justify-content: flex-start;
+  align-content: flex-start;
+}
+
+
 .img-responsive2 {
   border-radius: 44px;
   padding: 40px;
@@ -78,6 +102,15 @@
   justify-content: flex-start;
   align-content: flex-start;
 }
+
+.card-description2 {
+  position: absolute;
+  display: flex;
+  justify-content: flex-start;
+  align-content: center;
+
+}
+
 .card-description h2 {
   font-size: 24px;
   bottom: 10px;
@@ -100,4 +133,10 @@
 }
 .card-link:hover {
   opacity: 0.1;
+}
+
+.depoimento {
+  width: 200px;
+  margin: 5px;
+  height: 80px;
 }

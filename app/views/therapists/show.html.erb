@@ -19,13 +19,14 @@
             <% @avg_rating.times do %>
             <i class="fas fa-star" style= "color:#F4D144"></i>
              <% end %>
-              <p class= "lisa-price-description">Preço do tratamento R$: <%= @therapist.session_price %></p>
+              <h5 class= "lisa-price-description">Sessão (50min):</h5>
+              <h3 class= "lisa-price-description">R$ <%= @therapist.session_price %>,00</h3>
           </div>
       </div>
     </div>
   <div class="col-xs-12 col-md-4 ">
       <div class="lisa-card-description">
-         <h2 class= "lisa"> <strong>Sobre Mim</strong> </h2>
+         <h2 class= "lisa"> <strong>Sobre mim</strong> </h2>
          <p class="lisa-self_description"> <%= @therapist.self_description %> </p>
       </div>
     <div class="item-heading">

@@ -31,7 +31,7 @@
                     <%= cl_image_tag therapist.user.avatar, radius: :max, height: 80, width: 80, crop: :thumb, gravity: :face %>
                   </div>
 
-                  <p class="price-info">Valor  <br>R$<%= therapist.session_price %>,00</p>
+                  <p class="price-info">Sessão <br>R$<%= therapist.session_price %>,00</p>
 
                   <% @avg_rating[ind].times do %>
                        <i class="fas fa-star" style= "color:#F4D144"></i>
