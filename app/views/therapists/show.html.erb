@@ -3,11 +3,12 @@
 
 <div class="lisa-container-name">
   <div class="lisa-row">
-   <div class="col-12">
+   <div class="col-xs-12">
      <h1 class="lisa-name"> <%= @therapist.user.first.capitalize %> <%= @therapist.user.last %> </h1>
    </div>
   </div>
 </div>
+
 <div class="container therapist-profile-container">
   <div class="lisa-row">
     <div class="col-xs-12 col-md-3 offset-1">
@@ -19,17 +20,20 @@
             <% @avg_rating.times do %>
             <i class="fas fa-star" style= "color:#F4D144"></i>
              <% end %>
-              <p class= "lisa-price-description">Preço do tratamento R$: <%= @therapist.session_price %></p>
           </div>
+              <%= @therapist.address %>
+              <p class= "lisa-price-description lisa">Sessão <br> R$ <%= @therapist.session_price %>,00
+              </p>
       </div>
     </div>
-  <div class="col-xs-12 col-md-4 ">
+
+    <div class="col-xs-12 col-md-4 ">
       <div class="lisa-card-description">
          <h2 class= "lisa"> <strong>Sobre Mim</strong> </h2>
          <p class="lisa-self_description"> <%= @therapist.self_description %> </p>
       </div>
-    <div class="item-heading">
-      <h2 class= "lisa"> <strong>Terapias oferecidas</strong> </h2>
+      <div class="item-heading">
+        <h2 class= "lisa"> <strong>Terapias oferecidas</strong> </h2>
         <% @therapist.services.each do |service| %>
           <div class="category-item">
             <%= link_to categories_path do %>
@@ -37,8 +41,9 @@
             <% end %>
           </div>
         <% end %>
+      </div>
     </div>
-  </div>
+
    <div class="col-xs-12 col-md-4 ">
      <div class="lisa-item-card">
        <div class="lisa-calendar-content">
@@ -47,9 +52,11 @@
       </div>
    </div>
 
+
  </div>
 </div>
 
+<br><br>
 <div class="lisa-container-photos">
   <div class="item-photos text-center">
     <% if @therapist.photos %>
@@ -58,7 +65,7 @@
   </div>
 </div>
 
-
+<br><br><br>
 </div>
 
 
