@@ -1,14 +1,115 @@
-<h1></h1>
+<div class="wraper-appointment">
+
+
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12">
+            <h3>Agendamentos Realizados</h3>
+
+              <div class="">
+                <table class="table" style="width:100%; vertical-align: middle;">
+                  <tr>
+                    <th>Data</th>
+                    <th>Hora</th>
+                    <th>Terapeuta</th>
+                    <th>Terapia</th>
+                    <th>Endereço</th>
+                    <th>Preço</th>
+                    <th>Rating</th>
+                    <th>Status</th>
+                    <th></th>
+                  </tr>
+
+                  <% @appointments.select{ |a| a.status == "Agendado"}.each do |appointment| %>
+
+                    <tr>
+                      <td><%= appointment.session_date.strftime("%d/%m/%y") %></td>
+                      <td><%= appointment.session_date.strftime("%R") %></td>
+                      <td class = "terapia"><%= appointment.therapist.user.first.capitalize + " " + appointment.therapist.user.last.capitalize%></td>
+                      <td class = "terapia"><%= appointment.category_selected.capitalize if appointment.category_selected %></td>
+                      <td class = "maximum"><%= appointment.therapist.address %></td>
+                      <td>R$ <%= appointment.therapist.session_price %>,00</td>
+                      <td><%= appointment.rating %></td>
+                      <td class="agendado"><%= appointment.status %></td>
+
+
+
+                      <td class="btn btn-xs destroy-app">
+                          <%= link_to appointment_path(appointment), data: { confirm: "Tem certeza que quer cancelar seu agendamento?" }, class: "destroy-app", method: :delete do |l| %>
+                            <i class="fas fa-trash-alt"></i>
+                          <% end %>
+                      </td>
+
+                    </tr>
+                  <% end %>
+                </table>
+
+              </div>
+
+          </div>
+        </div>
+      </div>
+
+    <br><br>
+
+
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12">
+          <h3>Avalie seus agendamentos</h3>
+
+            <div>
+              <table class="table" style="width:100%; vertical-align: middle;">
+                <tr>
+                  <th>Data</th>
+                  <th>Hora</th>
+                  <th>Terapeuta</th>
+                  <th>Terapia</th>
+                  <th>Endereço</th>
+                  <th>Preço</th>
+                  <th>Rating</th>
+                  <th>Status</th>
+                  <th></th>
+                </tr>
+
+                <% @appointments.select{ |a| a.status == "Sem rating"}.each do |appointment| %>
+
+                  <tr>
+                    <td><%= appointment.session_date.strftime("%d/%m/%y") %></td>
+                    <td><%= appointment.session_date.strftime("%R") %></td>
+                    <td class = "terapia"><%= appointment.therapist.user.first.capitalize + " " + appointment.therapist.user.last.capitalize%></td>
+                    <td class = "terapia"><%= appointment.category_selected.capitalize if appointment.category_selected %></td>
+                    <td class = "maximum"><%= appointment.therapist.address %></td>
+                    <td>R$ <%= appointment.therapist.session_price %>,00</td>
+
+                    <td>
+                      <%= simple_form_for appointment, html: { class: "form-inline text-justify no-padding" }, method: "patch" do |f| %>
+                       <%= f.input :rating, input_html: { class: "input-sm" }, collection: [1,2,3,4,5], placeholder: "Nota de 1 a 5", label: false, allow_blank: false %>
+                       <%= f.button :submit, "⭐", {class: "btn btn-sm btn-default"} %>
+
+                      <% end %>
+                    </td>
+
+                    <td class="rating-wait"><%= appointment.status %></td>
+                  </tr>
+                <% end %>
+              </table>
+
+            </div>
+
+        </div>
+      </div>
+    </div>
+
+<br><br>
+
+
 <div class="container">
   <div class="row">
     <div class="col-xs-12">
-        <h1></h1><br>
+      <h3>Agendamentos finalizados</h3>
 
-        <div class="panel panel-success">
-          <div class="panel-heading">
-            <h4>Agendamentos Realizados</h4>
-          </div>
-
+        <div>
           <table class="table" style="width:100%; vertical-align: middle;">
             <tr>
               <th>Data</th>
@@ -16,67 +117,39 @@
               <th>Terapeuta</th>
               <th>Terapia</th>
               <th>Endereço</th>
-              <!-- <th>Telefone</th> -->
               <th>Preço</th>
               <th>Rating</th>
               <th>Status</th>
               <th></th>
             </tr>
 
-            <% @appointments.each do |appointment| %>
+            <% @appointments.select{ |a| a.status == "Finalizado"}.each do |appointment| %>
+
               <tr>
                 <td><%= appointment.session_date.strftime("%d/%m/%y") %></td>
                 <td><%= appointment.session_date.strftime("%R") %></td>
                 <td class = "terapia"><%= appointment.therapist.user.first.capitalize + " " + appointment.therapist.user.last.capitalize%></td>
                 <td class = "terapia"><%= appointment.category_selected.capitalize if appointment.category_selected %></td>
                 <td class = "maximum"><%= appointment.therapist.address %></td>
-                <!-- <td><%= appointment.therapist.phone %></td> -->
                 <td>R$ <%= appointment.therapist.session_price %>,00</td>
 
-                <!-- <td><%= appointment.rating %></td> -->
-                <td class="rating-wid">
-                <% if appointment.rating %>
-                    <% appointment.rating.times do %>
-                     <i class="fas fa-star" style= "color:#F4D144"></i>
-                    <% end %>
-
-                <% else %>
-
-                  <% if appointment.status = "Sem rating" %>
-                      <%= simple_form_for appointment, html: { class: "form-inline text-justify no-padding" }, method: "patch" do |f| %>
-                        <%= f.input :rating, input_html: { class: "input-sm" }, collection: [1,2,3,4,5], placeholder: "Nota de 1 a 5", label: false, allow_blank: false %>
-                        <%= f.button :submit, "⭐", {class: "btn btn-sm btn-default"} do |b| %>
-                          <%=  "<i class='fas fa-star' style= 'color:#F4D144'></i>".html_safe %>
-
-                        <% end %>
-                      <% end %>
-                  <% end %>
-
-
-                <% end %>
-                </td>
-                <td><%= appointment.status %></td>
-
-
-
-                <td class="btn btn-xs">
-                  <% if appointment.status == "Agendado" %>
-                    <%= link_to appointment_path(appointment), data: { confirm: "Tem certeza que quer cancelar seu agendamento?" }, method: :delete do |l| %>
-                      <i class="fas fa-trash-alt"></i>
-
-                    <% end %>
-                  <% end %>
+                <td>
+                 <% appointment.rating.times do %>
+                  <i class="fas fa-star" style= "color:#F4D144"></i>
+                 <% end %>
                 </td>
 
+                <td class="rating-wait"><%= appointment.status %></td>
               </tr>
             <% end %>
           </table>
+
         </div>
 
     </div>
   </div>
 </div>
-                <!-- <td class="btn btn-xs"><i class="fas fa-star" style= "color:#F4D144"></i> -->
-<!--
-                  <%#= link_to "Cancelar minha conta", registration_path(resource_name), data: { confirm: "Tem certeza que quer cancelar sua conta?" }, method: :delete %></p>
- -->
+
+
+</div>
+

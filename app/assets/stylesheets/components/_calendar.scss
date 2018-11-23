@@ -90,3 +90,17 @@
 .item-disabled {
   color: #E2E2E2
 }
+
+
+.container-settings {
+  display: flex;
+  justify-content: center;
+  background-color: $light-gray
+}
+
+.container-settings-item {
+  color: #383838;
+  font-weight: bold;
+  flex: 1 0 13%;
+  text-align: center;
+}

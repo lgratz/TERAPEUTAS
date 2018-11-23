@@ -1,67 +1,152 @@
-<div class="container">
-  <div class="row">
-    <div class="col-xs-12">
-        <h1></h1><br>
+<div class="wraper-appointment">
 
-        <div class="panel panel-success">
-          <div class="panel-heading">
-            <h4>Agenda de compromissos</h4>
+
+        <div class="container">
+          <div class="row">
+            <div class="col-xs-12">
+                <h3>Próximos agendamentos</h3>
+
+                <div class="">
+
+                  <table class="table" style="width:100%">
+                    <tr>
+                      <th>Data</th>
+                      <th>Hora</th>
+                      <th>Cliente</th>
+                      <th>Email</th>
+                      <th>Terapia</th>
+                      <th>Sessão</th>
+                      <th>Rating</th>
+                      <th>Status</th>
+                      <th> </th>
+                     </tr>
+
+                  <% @appointments.select{ |a| a.status == "Agendado"}.each do |appointment| %>
+                    <tr>
+                      <td><%= appointment.session_date.strftime("%d/%m/%y") %></td>
+                      <td><%= appointment.session_date.strftime("%R") %></td>
+                      <td class="terapia"><%= appointment.user.first.capitalize + " " + appointment.user.last.capitalize%></td>
+                      <td><%= appointment.user.email %></td>
+                      <td class="terapia"><%= appointment.category_selected.capitalize if appointment.category_selected %></td>
+                      <td>R$ <%= appointment.therapist.session_price %>,00</td>
+
+                      <td>
+                        <%= link_to "Solicitar", therapist_appointment_path(appointment), method: :patch, class: "btn btn-default btn-sm" %>
+                      </td>
+
+                      <td class="agendado"><%= appointment.status %></td>
+
+                      <td class="btn btn-xs destroy-app">
+                          <%= link_to therapist_appointment_path(appointment), data: { confirm: "Tem certeza que quer cancelar esse agendamento?" }, class: "destroy-app", method: :delete do %>
+                              <i class="fas fa-trash-alt"></i>
+                            <% end %>
+                      </td>
+                    </tr>
+                    <tr></tr>
+                  <% end %>
+                  </table>
+
+                </div>
+
+            </div>
           </div>
-
-          <table class="table" style="width:100%">
-            <tr>
-              <th>Data</th>
-              <th>Hora</th>
-              <th>Cliente</th>
-              <th>Email</th>
-              <th>Terapia</th>
-              <th>Valor</th>
-              <th>Rating</th>
-              <th>Status</th>
-             </tr>
-
-            <% @appointments.each do |appointment| %>
-            <tr>
-              <td><%= appointment.session_date.strftime("%d/%m/%y") %></td>
-              <td><%= appointment.session_date.strftime("%R") %></td>
-              <td class="terapia"><%= appointment.user.first.capitalize + " " + appointment.user.last.capitalize%></td>
-              <td><%= appointment.user.email %></td>
-              <td class="terapia"><%= appointment.category_selected.capitalize if appointment.category_selected %></td>
-              <td>R$ <%= appointment.therapist.session_price %>,00</td>
-
-              <td>
-                <% if appointment.rating %>
-                    <% appointment.rating.times do %>
-                     <i class="fas fa-star" style= "color:#F4D144"></i>
-                    <% end %>
-
-                <% else %>
-
-                  <% if appointment.status == "Agendado" %>
-                      <%= link_to "Solicitar", therapist_appointment_path(appointment), method: :patch, class: "btn btn-default btn-sm" %>
-
-                  <% end %>
-
-                <% end %>
-              </td>
-              <td><%= appointment.status %></td>
-
-              <td class="btn btn-xs destroy-app">
-                <% if appointment.status == "Agendado" %>
-                  <%= link_to therapist_appointment_path(appointment), data: { confirm: "Tem certeza que quer cancelar esse agendamento?" }, class: "destroy-app", method: :delete do |l| %>
-                    <i class="fas fa-trash-alt"></i>
-
-                  <% end %>
-                <% end %>
-              </td>
-
-            </tr>
-            <% end %>
-          </table>
-
         </div>
 
-    </div>
-  </div>
-</div>
 
+        <br><br>
+
+        <div class="container">
+          <div class="row">
+            <div class="col-xs-12">
+                <h3>Aguardando rating</h3>
+
+                <div class="">
+
+                  <table class="table" style="width:100%">
+                    <tr>
+                      <th>Data</th>
+                      <th>Hora</th>
+                      <th>Cliente</th>
+                      <th>Email</th>
+                      <th>Terapia</th>
+                      <th>Sessão</th>
+                      <th>Rating</th>
+                      <th>Status</th>
+                     </tr>
+
+                  <% @appointments.select{ |a| a.status == "Sem rating"}.each do |appointment| %>
+                    <tr>
+                      <td><%= appointment.session_date.strftime("%d/%m/%y") %></td>
+                      <td><%= appointment.session_date.strftime("%R") %></td>
+                      <td class="terapia"><%= appointment.user.first.capitalize + " " + appointment.user.last.capitalize%></td>
+                      <td><%= appointment.user.email %></td>
+                      <td class="terapia"><%= appointment.category_selected.capitalize if appointment.category_selected %></td>
+                      <td>R$ <%= appointment.therapist.session_price %>,00</td>
+
+                      <td>
+                        <%= appointment.rating %>
+                      </td>
+
+                      <td class= "rating-wait"><%= appointment.status %></td>
+                    </tr>
+                  <% end %>
+                  </table>
+
+                </div>
+
+            </div>
+          </div>
+        </div>
+
+
+        <br><br>
+
+
+        <div class="container">
+          <div class="row">
+            <div class="col-xs-12">
+                <h3>Histórico de agendamentos</h3>
+
+                <div class="">
+
+                  <table class="table" style="width:100%">
+                    <tr>
+                      <th>Data</th>
+                      <th>Hora</th>
+                      <th>Cliente</th>
+                      <th>Email</th>
+                      <th>Terapia</th>
+                      <th>Sessão</th>
+                      <th>Rating</th>
+                      <th>Status</th>
+                     </tr>
+
+                  <% @appointments.select{ |a| a.status == "Finalizado"}.each do |appointment| %>
+                    <tr>
+                      <td><%= appointment.session_date.strftime("%d/%m/%y") %></td>
+                      <td><%= appointment.session_date.strftime("%R") %></td>
+                      <td class="terapia"><%= appointment.user.first.capitalize + " " + appointment.user.last.capitalize%></td>
+                      <td><%= appointment.user.email %></td>
+                      <td class="terapia"><%= appointment.category_selected.capitalize if appointment.category_selected %></td>
+                      <td>R$ <%= appointment.therapist.session_price %>,00</td>
+
+                      <td>
+                        <% appointment.rating.times do %>
+                         <i class="fas fa-star" style= "color:#F4D144"></i>
+                        <% end %>
+                      </td>
+
+                      <td class= "rating-wait"><%= appointment.status %></td>
+                    </tr>
+                  <% end %>
+                  </table>
+
+                </div>
+
+            </div>
+          </div>
+        </div>
+
+
+
+</div>

@@ -26,3 +26,23 @@
 td {
  vertical-align: middle !important;
 }
+
+th {
+  background-color: $verde-escuro;
+  color: white;
+}
+.wraper-apppointment {
+  min-height: calc(100vh - 140px);
+}
+
+.agendado {
+  color: $verde-escuro;
+}
+
+.rating-wait {
+  color: $azul-claro;
+}
+
+.finalizado {
+  color: $gray;
+}
