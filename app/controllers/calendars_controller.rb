@@ -14,6 +14,11 @@ class CalendarsController < ApplicationController
     end
   end
 
+  def destroy
+    @calendar = current_user.therapist.calendar
+    @calendar.destroy
+  end
+
   private
 
   def calendar_params

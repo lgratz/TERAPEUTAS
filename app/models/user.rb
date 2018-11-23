@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_one :therapist, dependent: :destroy
-  has_many :appointments
+  has_many :appointments, dependent: :destroy
 
   mount_uploader :avatar, PhotoUploader
 end

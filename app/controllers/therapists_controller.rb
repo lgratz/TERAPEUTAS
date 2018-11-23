@@ -61,6 +61,9 @@ class TherapistsController < ApplicationController
   end
 
   def destroy
+    Service.where(therapist_id: @therapist).each do |service|
+      service.destroy
+    end
     @therapist.destroy
   end
 
